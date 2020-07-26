@@ -2,7 +2,6 @@ package com.example.todolist.datamodel;
 
 import javafx.collections.FXCollections;
 
-import javax.swing.text.html.ListView;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -33,9 +32,15 @@ public class ToDoData {
         return toDoItems;
     }
 
-    public void setToDoItems(List<ToDoItem> toDoItems){
-        this.toDoItems = toDoItems;
+
+    public void addToDoItem(ToDoItem item){
+        toDoItems.add(item);
     }
+
+
+//    public void setToDoItems(List<ToDoItem> toDoItems){
+//        this.toDoItems = toDoItems;
+//    }
 
     public void loadToDoItems() throws IOException{
         toDoItems = FXCollections.observableArrayList();

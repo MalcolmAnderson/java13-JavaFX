@@ -1,0 +1,7 @@
+Mail birthday card	Buy a 30th birthday card for John	25-07-2020
+Doctor's Appointment	See Dr. Smith at 123 Main Street.  Bring Paperwork	23-07-2020
+Finish design proposal for client	I promised Mike I'd email website mockups by Friday 22nd April	22-07-2020
+Pickup Doug at the train station	Doug's arriving on June 23rd on the 5:00 train	23-09-2020
+Pick up dry cleaning	The cloths should be ready by Wednesday	02-05-2020
+Testing	Much longer test text	26-07-2020
+This is a new test	This is a new test	28-07-2020
