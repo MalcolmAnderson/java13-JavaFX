@@ -92,7 +92,7 @@ public class ToDoData {
         toDoItems.remove(item);
     }
 
-    public void saveTodoItem(ToDoItem item){
-
+    public void updateToDoItem(ToDoItem item){
+        toDoItems.set(toDoItems.indexOf(item),item);
     }
 }
