@@ -76,6 +76,16 @@ public class Controller {
         });
         listContextMenu.getItems().addAll(deleteMenuItem);
 
+        MenuItem editMenuItem = new MenuItem("Edit");
+        deleteMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ToDoItem item = todoListView.getSelectionModel().getSelectedItem();
+                editItem(item);
+            }
+        });
+        listContextMenu.getItems().addAll(editMenuItem);
+
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<ToDoItem>() {
             @Override
             public void changed(ObservableValue<? extends ToDoItem> observable, ToDoItem oldValue, ToDoItem newValue) {
@@ -160,7 +170,33 @@ public class Controller {
             //todoListView.getItems().setAll(ToDoData.getInstance().getToDoItems());
             todoListView.getSelectionModel().select(newItem);
         }
+    }
 
+    @FXML
+    public void showEditItemDialog(ToDoItem selectedItem) {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle(("Edit ToDo Item"));
+        dialog.setHeaderText("Use this dialog to edit an existing ToDo item");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("todoItemDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            DialogController controller = fxmlLoader.getController();
+            ToDoItem newItem = controller.processResults();
+            //todoListView.getItems().setAll(ToDoData.getInstance().getToDoItems());
+            todoListView.getSelectionModel().select(newItem);
+        }
     }
 
     @FXML
@@ -183,5 +219,23 @@ public class Controller {
             ToDoData.getInstance().deleteTodoItem(item);
         }
     }
+
+    public void editItem(ToDoItem item) {
+        // call the add screen with prepopulated data
+
+        // save changes
+
+        // confirm that changes are to be saved
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Save Changes to ToDo Item");
+        alert.setHeaderText("Save Changes to item: " + item.getShortDescription());
+        alert.setContentText("Are you sure?  Press OK to confirm, or cancel to back out.");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && (result.get() == ButtonType.OK)) {
+            ToDoData.getInstance().saveTodoItem(item);
+        }
+    }
+
+
 
 }
