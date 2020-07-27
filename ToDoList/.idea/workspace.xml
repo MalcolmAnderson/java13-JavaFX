@@ -21,14 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToDoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoList.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ToDoListItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoListItems.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/datamodel/ToDoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/datamodel/ToDoData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/mainwindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/todolist/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/todolist/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/DialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/todolist/datamodel/ToDoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/datamodel/ToDoData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/mainwindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,6 +115,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Controls/jlfgr-1_0.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -222,7 +218,7 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1595528225390" duration="30552000" />
+      <workItem from="1595528225390" duration="32226000" />
     </task>
     <servers />
   </component>
@@ -254,26 +250,34 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="765" y="256" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595786743218" />
-    <state width="1877" height="87" key="GridCell.Tab.0.bottom" timestamp="1595798448270">
+    <state x="666" y="281" key="FileChooserDialogImpl" timestamp="1595799040713">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="87" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595798448270" />
-    <state width="1877" height="87" key="GridCell.Tab.0.center" timestamp="1595798448270">
+    <state x="666" y="281" key="FileChooserDialogImpl/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799040713" />
+    <state width="1877" height="411" key="GridCell.Tab.0.bottom" timestamp="1595799945886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="87" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595798448270" />
-    <state width="1877" height="87" key="GridCell.Tab.0.left" timestamp="1595798448270">
+    <state width="1877" height="411" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799945886" />
+    <state width="1877" height="411" key="GridCell.Tab.0.center" timestamp="1595799945886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="87" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595798448270" />
-    <state width="1877" height="87" key="GridCell.Tab.0.right" timestamp="1595798448270">
+    <state width="1877" height="411" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799945886" />
+    <state width="1877" height="411" key="GridCell.Tab.0.left" timestamp="1595799945886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="87" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595798448270" />
-    <state x="440" y="114" key="SettingsEditor" timestamp="1595741153753">
+    <state width="1877" height="411" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799945886" />
+    <state width="1877" height="411" key="GridCell.Tab.0.right" timestamp="1595799945886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="440" y="114" key="SettingsEditor/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595741153753" />
+    <state width="1877" height="411" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799945886" />
+    <state x="440" y="114" key="SettingsEditor" timestamp="1595799074080">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="440" y="114" key="SettingsEditor/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799074080" />
+    <state x="389" y="112" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595799183161">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="389" y="112" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799183161" />
     <state x="616" y="250" key="run.anything.popup" timestamp="1595794464773">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
