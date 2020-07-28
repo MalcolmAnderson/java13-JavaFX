@@ -4,6 +4,7 @@ import com.example.todolist.datamodel.ToDoData;
 import com.example.todolist.datamodel.ToDoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,6 +23,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 public class Controller {
     private List<ToDoItem> toDoItems;
@@ -41,6 +43,10 @@ public class Controller {
     @FXML
     private ContextMenu listContextMenu;
 
+    @FXML
+    private ToggleButton filterToggleButton;
+
+    private FilteredList<ToDoItem> filteredList;
 
     public void initialize() {
 //        ToDoItem item1 = new ToDoItem("Mail birthday card",
@@ -102,7 +108,15 @@ public class Controller {
             }
         });
 
-        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(ToDoData.getInstance().getToDoItems(),
+        filteredList = new FilteredList<ToDoItem>(ToDoData.getInstance().getToDoItems(),
+                new Predicate<ToDoItem>() {
+                    @Override
+                    public boolean test(ToDoItem toDoItem) {
+                        return true;
+                    }
+                });
+
+        SortedList<ToDoItem> sortedList = new SortedList<ToDoItem>(filteredList,
                 new Comparator<ToDoItem>() {
                     @Override
                     public int compare(ToDoItem o1, ToDoItem o2) {
@@ -233,6 +247,14 @@ public class Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && (result.get() == ButtonType.OK)) {
             ToDoData.getInstance().deleteTodoItem(item);
+        }
+    }
+
+    public void handleFilterButton(){
+        if(filterToggleButton.isSelected()){
+
+        } else {
+
         }
     }
 }
