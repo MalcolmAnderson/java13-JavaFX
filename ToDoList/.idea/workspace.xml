@@ -24,9 +24,7 @@
       <change beforePath="$PROJECT_DIR$/ToDoListItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ToDoListItems.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ToDoList/com/example/todolist/mainwindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/todolist/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/todolist/mainwindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/todolist/mainwindow.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +218,7 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1595528225390" duration="34629000" />
+      <workItem from="1595528225390" duration="36875000" />
     </task>
     <servers />
   </component>
@@ -256,22 +254,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="666" y="281" key="FileChooserDialogImpl/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595799040713" />
-    <state width="1877" height="229" key="GridCell.Tab.0.bottom" timestamp="1595998122846">
+    <state width="1877" height="229" key="GridCell.Tab.0.bottom" timestamp="1596001116610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="229" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595998122846" />
-    <state width="1877" height="229" key="GridCell.Tab.0.center" timestamp="1595998122845">
+    <state width="1877" height="229" key="GridCell.Tab.0.bottom/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1596001116610" />
+    <state width="1877" height="229" key="GridCell.Tab.0.center" timestamp="1596001116610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="229" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595998122845" />
-    <state width="1877" height="229" key="GridCell.Tab.0.left" timestamp="1595998122845">
+    <state width="1877" height="229" key="GridCell.Tab.0.center/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1596001116610" />
+    <state width="1877" height="229" key="GridCell.Tab.0.left" timestamp="1596001116610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="229" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595998122845" />
-    <state width="1877" height="229" key="GridCell.Tab.0.right" timestamp="1595998122846">
+    <state width="1877" height="229" key="GridCell.Tab.0.left/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1596001116610" />
+    <state width="1877" height="229" key="GridCell.Tab.0.right" timestamp="1596001116610">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1877" height="229" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595998122846" />
+    <state width="1877" height="229" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1596001116610" />
     <state x="440" y="114" key="SettingsEditor" timestamp="1595799074080">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -288,5 +286,16 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="235" width="672" height="678" key="search.everywhere.popup/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1595728247439" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/example/todolist/Controller.java</url>
+          <line>267</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
