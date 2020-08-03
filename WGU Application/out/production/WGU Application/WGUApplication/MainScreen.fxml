@@ -1,14 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="WGUApplication.MainScreen"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<GridPane
+          alignment="center" hgap="10" vgap="10"
+          prefHeight="540.0" prefWidth="877.0"
+          xmlns="http://javafx.com/javafx/8.0.171"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="WGUApplication.MainScreenController"
+         fx:id="idMainScreen">
+   <columnConstraints>
+      <ColumnConstraints maxWidth="459.0" minWidth="392.0" prefWidth="422.0" />
+      <ColumnConstraints maxWidth="452.0" minWidth="385.0" prefWidth="422.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="368.0" prefWidth="387.0" GridPane.rowIndex="1">
+         <children>
+            <Button fx:id="buttonPartAdd" layoutX="204.0" layoutY="433.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartAdd" text="Add" />
+            <ListView layoutX="14.0" layoutY="213.0" prefHeight="200.0" prefWidth="370.0" />
+            <Label layoutX="26.0" layoutY="102.0" text="Parts">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Button fx:id="buttonPartSearch" layoutX="122.0" layoutY="103.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartSearch" text="Search" />
+            <TextField fx:id="textPartSearch" layoutX="204.0" layoutY="103.0" onAction="#handleAction_PartSearch" />
+            <Button fx:id="buttonPartModify" layoutX="259.0" layoutY="433.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartModify" text="Modify" />
+            <Button fx:id="buttonPartDelete" layoutX="334.0" layoutY="433.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartDelete" text="Delete" />
+         </children>
+      </Pane>
+      <Pane prefHeight="498.0" prefWidth="457.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ListView layoutX="26.0" layoutY="215.0" prefHeight="200.0" prefWidth="370.0" />
+            <Label layoutX="26.0" layoutY="103.0" text="Products">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+            <Button fx:id="buttonProductAdd" layoutX="162.0" layoutY="431.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductAdd" text="Add" />
+            <Button fx:id="buttonProductModify" layoutX="217.0" layoutY="431.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductModify" text="Modify" />
+            <Button fx:id="buttonProductDelete" layoutX="292.0" layoutY="431.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductDelete" text="Delete" />
+            <Button fx:id="buttonProductSearch" layoutX="148.0" layoutY="104.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductSearch" text="Search" />
+            <TextField fx:id="textProductSearch" layoutX="226.0" layoutY="104.0" onAction="#handleAction_ProductSearch" />
+         </children>
+      </Pane>
+      <Label text="Inventory Management System">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Button fx:id="buttonExit" mnemonicParsing="false" onAction="#OnButtonClicked_Exit" text="Exit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+</GridPane>
