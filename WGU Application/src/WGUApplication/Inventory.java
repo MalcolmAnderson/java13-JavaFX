@@ -1,3 +1,6 @@
+package WGUApplication;
+
+import WGUApplication.Product;
 import javafx.collections.ObservableList;
 
 public class Inventory {
@@ -11,8 +14,12 @@ public class Inventory {
     public static Part lookupPart(Part newPart){ return new InHouse();}
     public static Product lookupProduct(Product newProduct){return new Product();}
 
-//    public static ObservableList<Part> lookupPart(String partName){}
-//    public static ObservableList<Product> lookupProduct(String productName){}
+    public static ObservableList<Part> lookupPart(String partName){
+        return allParts;
+    }
+    public static ObservableList<Product> lookupProduct(String productName){
+        return allProducts;
+    }
 
     public static void updatePart(int index, Part selectedPart){ }
     public static void updateProduct(int index, Product selectedProduct){}
@@ -20,8 +27,12 @@ public class Inventory {
     public static boolean deletePart(Part selectedPart){ return true;}
     public static boolean deleteProduct(Product selectedProduct){return true;}
 
-//    public static ObservableList<Part> getAllParts(){}
-//    public static ObservableList<Product> getAllProducts(){}
+    public static ObservableList<Part> getAllParts(){
+        return allParts;
+    }
+    public static ObservableList<Product> getAllProducts(){
+        return allProducts;
+    }
 
 
 

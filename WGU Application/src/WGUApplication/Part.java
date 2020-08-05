@@ -1,7 +1,7 @@
-import javafx.collections.ObservableList;
+package WGUApplication;
 
-public class Product {
-    private ObservableList<Part> associatedParts;
+import WGUApplication.GetIdNumber;
+public abstract class Part {
     private int id;
     private String name;
     private double price;
@@ -9,7 +9,8 @@ public class Product {
     private int min;
     private int max;
 
-    public Product(int id, String name, double price, int stock, int min, int max){
+
+    public Part(int id, String name, double price, int stock, int min, int max){
         this.id = id;
         this.name = name;
         this.price = price;
@@ -18,8 +19,8 @@ public class Product {
         this.max = max;
     }
 
-    public Product(){} // should throw not implemented exception
 
+    public Part(){} // should throw not implemented exception
 
     public void setId(int id){
         this.id = id;
@@ -58,6 +59,4 @@ public class Product {
     public int getMax(){
         return max;
     }
-
-
 }

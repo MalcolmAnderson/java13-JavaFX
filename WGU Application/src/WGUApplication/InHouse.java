@@ -1,3 +1,5 @@
+package WGUApplication;
+
 public class InHouse extends Part {
 
     private int machineId;
