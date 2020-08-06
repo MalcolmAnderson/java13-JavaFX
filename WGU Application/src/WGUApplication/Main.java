@@ -1,6 +1,7 @@
 package WGUApplication;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,14 +21,17 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Inventory inventory = BuildInventory();
+        BuildInventory();
+        ObservableList<Product> products = Inventory.getAllProducts();
+        int prodCount = products.size();
+        System.out.println(prodCount);
 
         launch(args);
 
     }
 
-    public static Inventory BuildInventory(){
-        Inventory inventory = new Inventory();
+    public static void BuildInventory(){
+        //Inventory inventory = new Inventory();
 
         Outsourced osCase = new Outsourced(GetIdNumber.getNextIdNumber(),
                 "Case", 2d, 2, 2,8, "Cases from Bob");
@@ -54,10 +58,10 @@ public class Main extends Application {
         prodPCMarkII.addAssociatedPart(osLEDMatrix);
         prodPCMarkII.addAssociatedPart(osSmRegisterBanks);
 
-        inventory.addPart(osCase);
-        inventory.addProduct(prodPCMarkII);
+        Inventory.getInstance().addPart(osCase);
+        Inventory.getInstance().addProduct(prodPCMarkII);
 
-        return inventory;
+        return;
     }
 
 }

@@ -5,6 +5,11 @@ import javafx.collections.ObservableList;
 
 public class Inventory {
 
+    private static Inventory instance = new Inventory();
+    public static Inventory getInstance(){
+        return instance;
+    }
+
     private static ObservableList<Part> allParts;
     private static ObservableList<Product> allProducts;
 
