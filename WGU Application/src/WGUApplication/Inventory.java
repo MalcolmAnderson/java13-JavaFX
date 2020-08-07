@@ -1,6 +1,7 @@
 package WGUApplication;
 
 import WGUApplication.Product;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Inventory {
@@ -10,11 +11,15 @@ public class Inventory {
         return instance;
     }
 
-    private static ObservableList<Part> allParts;
-    private static ObservableList<Product> allProducts;
+    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
+    private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
-    public static void addPart(Part newPart){}
-    public static void addProduct(Product newProduct){}
+    public static void addPart(Part newPart){
+        allParts.add(newPart);
+    }
+    public static void addProduct(Product newProduct){
+        allProducts.add(newProduct);
+    }
 
     public static Part lookupPart(Part newPart){ return new InHouse();}
     public static Product lookupProduct(Product newProduct){return new Product();}

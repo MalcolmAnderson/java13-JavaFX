@@ -24,10 +24,15 @@ public class Main extends Application {
         BuildInventory();
         ObservableList<Product> products = Inventory.getAllProducts();
         int prodCount = products.size();
-        System.out.println(prodCount);
+        ListInventory();
 
-        launch(args);
+        // launch(args);
 
+    }
+
+    public static void ListInventory(){
+        System.out.println("Unique Products in Inventory: " + Inventory.getAllProducts().size());
+        System.out.println("Unique Parts in Inventory:    " + Inventory.getAllParts().size());
     }
 
     public static void BuildInventory(){
@@ -59,6 +64,8 @@ public class Main extends Application {
         prodPCMarkII.addAssociatedPart(osSmRegisterBanks);
 
         Inventory.getInstance().addPart(osCase);
+        Inventory.getInstance().addPart(ihSimpleCircuit);
+        Inventory.getInstance().addPart(ihLogicCircuit);
         Inventory.getInstance().addProduct(prodPCMarkII);
 
         return;
