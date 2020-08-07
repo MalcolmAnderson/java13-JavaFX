@@ -24,6 +24,8 @@ public class Main extends Application {
         BuildInventory();
         ObservableList<Product> products = Inventory.getAllProducts();
         int prodCount = products.size();
+        Inventory.getInstance().PrintAllParts();
+        Inventory.getInstance().PrintAllProducts();
         ListInventory();
 
         // launch(args);

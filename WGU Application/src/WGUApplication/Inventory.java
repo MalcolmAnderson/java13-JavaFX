@@ -21,20 +21,74 @@ public class Inventory {
         allProducts.add(newProduct);
     }
 
-    public static Part lookupPart(Part newPart){ return new InHouse();}
-    public static Product lookupProduct(Product newProduct){return new Product();}
+    public static Part lookupPart(int partNumber){
+        for(Part o: allParts ){
+            if(o.getId() == partNumber){
+                return o;
+            }
+        }
+        return null;
+    }
+
+    public static Product lookupProduct(int productNumber){
+        for(Product o: allProducts ){
+            if(o.getId() == productNumber){
+                return o;
+            }
+        }
+        return null;
+    }
 
     public static ObservableList<Part> lookupPart(String partName){
-        return allParts;
+        ObservableList<Part> partList = FXCollections.observableArrayList();
+        for(Part o: allParts ){
+            if(o.getName().contains(partName)){
+                partList.add(o);
+            }
+        }
+        return partList;
     }
     public static ObservableList<Product> lookupProduct(String productName){
-        return allProducts;
+        ObservableList<Product> productList = FXCollections.observableArrayList();
+        for(Product o: allProducts ){
+            if(o.getName().contains(productName)){
+                productList.add(o);
+            }
+        }
+        return productList;
     }
 
-    public static void updatePart(int index, Part selectedPart){ }
-    public static void updateProduct(int index, Product selectedProduct){}
+    public static void updatePart(int index, Part selectedPart){
+        for(Part o: allParts ){
+            if(o.getId() == index){
+                allParts.remove(o.getId());
+                allParts.add(selectedPart);
+            }
+        }
+        return;
+    }
+    public static void updateProduct(int index, Product selectedProduct){
+        for(Product o: allProducts ){
+            if(o.getId() == index){
+                allProducts.remove(o.getId());
+                allProducts.add(selectedProduct);
+            }
+        }
+        return;
+    }
 
-    public static boolean deletePart(Part selectedPart){ return true;}
+    public static boolean deletePart(Part selectedPart)
+    {
+        for(Part o: allParts ){
+//            if(o.getId() == index){
+//                int index = 1;
+//                allParts.remove ( o.getId());
+//                allParts.add(selectedPart);
+//            }
+        }
+
+        return true;
+    }
     public static boolean deleteProduct(Product selectedProduct){return true;}
 
     public static ObservableList<Part> getAllParts(){
@@ -44,7 +98,17 @@ public class Inventory {
         return allProducts;
     }
 
+    public static void PrintAllParts(){
+        for(Part o: allParts ){
+            System.out.println(o.getId() + " " + o.getName());
+        }
+    }
 
+    public static void PrintAllProducts(){
+        for(Product o: allProducts ){
+            System.out.println(o.getId() + " " + o.getName());
+        }
+    }
 
 
 }
