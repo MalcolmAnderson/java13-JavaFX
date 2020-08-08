@@ -68,6 +68,7 @@ public class Inventory {
         return;
     }
     public static void updateProduct(int index, Product selectedProduct){
+
         for(Product o: allProducts ){
             if(o.getId() == index){
                 allProducts.remove(o.getId());

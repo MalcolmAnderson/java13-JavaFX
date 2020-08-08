@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import WGUApplication.*;
 
 
 public class Main extends Application {
@@ -28,7 +27,7 @@ public class Main extends Application {
         Inventory.getInstance().PrintAllProducts();
         ListInventory();
 
-        // launch(args);
+        launch(args);
 
     }
 
@@ -40,20 +39,20 @@ public class Main extends Application {
     public static void BuildInventory(){
         //Inventory inventory = new Inventory();
 
-        Outsourced osCase = new Outsourced(GetIdNumber.getNextIdNumber(),
+        Part_Outsourced osCase = new Part_Outsourced(GetIdNumber.getNextIdNumber(),
                 "Case", 2d, 2, 2,8, "Cases from Bob");
 
-        InHouse ihSimpleCircuit = new InHouse(GetIdNumber.getNextIdNumber(),
+        Part_InHouse ihSimpleCircuit = new Part_InHouse(GetIdNumber.getNextIdNumber(),
                 "Simple Circuit", 5d, 8, 2, 10, 200);
 
-        InHouse ihLogicCircuit = new InHouse(GetIdNumber.getNextIdNumber(),
+        Part_InHouse ihLogicCircuit = new Part_InHouse(GetIdNumber.getNextIdNumber(),
                 "Logic Circuit", 5d, 8, 2, 10, 201);
 
 
-        Outsourced osLEDMatrix = new Outsourced(GetIdNumber.getNextIdNumber(),
+        Part_Outsourced osLEDMatrix = new Part_Outsourced(GetIdNumber.getNextIdNumber(),
                 "LED Matrix", 15d, 2, 2,8, "Almost NVidia Inc");
 
-        Outsourced osSmRegisterBanks = new Outsourced(GetIdNumber.getNextIdNumber(),
+        Part_Outsourced osSmRegisterBanks = new Part_Outsourced(GetIdNumber.getNextIdNumber(),
                 "Small Register Banks", 14d, 2, 2,8, "Anti-tel");
 
         Product prodPCMarkII = new Product(GetIdNumber.getNextIdNumber(),
