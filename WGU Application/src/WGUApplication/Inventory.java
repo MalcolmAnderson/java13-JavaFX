@@ -14,11 +14,12 @@ public class Inventory {
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
-    public static void addPart(Part newPart){
-        allParts.add(newPart);
+
+    public static void addPart(Part newPart  ){
+        allParts.add(newPart ); // this is a change I want to revert
     }
     public static void addProduct(Product newProduct){
-        allProducts.add(newProduct);
+        allProducts.add(newProduct ); // this is a change I want to keep
     }
 
     public static Part lookupPart(int partNumber){
@@ -80,17 +81,17 @@ public class Inventory {
 
     public static boolean deletePart(Part selectedPart)
     {
-        for(Part o: allParts ){
-//            if(o.getId() == index){
-//                int index = 1;
-//                allParts.remove ( o.getId());
-//                allParts.add(selectedPart);
-//            }
-        }
-
-        return true;
+        int sizeOfAllParts = allParts.size();
+        allParts.remove(selectedPart);
+        return sizeOfAllParts == allParts.size() + 1;
     }
-    public static boolean deleteProduct(Product selectedProduct){return true;}
+
+    public static boolean deleteProduct(Product selectedProduct){
+        int sizeOfAllParts = allProducts.size();
+        allProducts.remove(selectedProduct);
+        return sizeOfAllParts == allProducts.size() + 1;
+
+    }
 
     public static ObservableList<Part> getAllParts(){
         return allParts;
