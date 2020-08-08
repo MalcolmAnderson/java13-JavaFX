@@ -1,6 +1,5 @@
-package WGUApplication;
+package Model;
 
-import WGUApplication.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

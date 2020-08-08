@@ -1,4 +1,4 @@
-package WGUApplication;
+package Model;
 
 public class GetIdNumber {
     static int nextIdNumber = 1;

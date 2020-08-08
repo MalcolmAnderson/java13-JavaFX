@@ -1,4 +1,6 @@
-package WGUApplication;
+package Model;
+
+import Model.Part;
 
 public class Part_InHouse extends Part {
 

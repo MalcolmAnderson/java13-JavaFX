@@ -1,9 +1,9 @@
 
-import WGUApplication.GetIdNumber;
-import WGUApplication.Inventory;
-import WGUApplication.Part_InHouse;
-import WGUApplication.Part_Outsourced;
-import WGUApplication.Part;
+import Model.GetIdNumber;
+import Model.Inventory;
+import Model.Part_InHouse;
+import Model.Part_Outsourced;
+import Model.Part;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

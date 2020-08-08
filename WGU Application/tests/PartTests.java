@@ -1,10 +1,8 @@
-import WGUApplication.GetIdNumber;
+import Model.GetIdNumber;
 import org.junit.Assert;
 import org.junit.Test;
 
-import WGUApplication.Part;
-import WGUApplication.Part_InHouse;
-import WGUApplication.Part_Outsourced;
+import Model.Part_InHouse;
 
 public class PartTests {
     @Test
