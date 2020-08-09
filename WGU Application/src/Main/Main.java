@@ -21,20 +21,20 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        ManageTestData.BuildInventory();
-        ObservableList<Product> products = Inventory.getAllProducts();
+        Inventory inv = ManageTestData.BuildInventory();
+        ObservableList<Product> products = inv.getAllProducts();
         int prodCount = products.size();
-        Inventory.getInstance().PrintAllParts();
-        Inventory.getInstance().PrintAllProducts();
-        ListInventory();
+        inv.PrintAllParts();
+        inv.PrintAllProducts();
+        ListInventory(inv);
 
         launch(args);
 
     }
 
-    public static void ListInventory(){
-        System.out.println("Unique Products in Inventory: " + Inventory.getAllProducts().size());
-        System.out.println("Unique Parts in Inventory:    " + Inventory.getAllParts().size());
+    public static void ListInventory(Inventory inv){
+        System.out.println("Unique Products in Inventory: " + inv.getAllProducts().size());
+        System.out.println("Unique Parts in Inventory:    " + inv.getAllParts().size());
     }
 
 }

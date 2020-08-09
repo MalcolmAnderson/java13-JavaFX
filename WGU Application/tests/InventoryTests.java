@@ -8,9 +8,14 @@ import Model.Part;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class InventoryTests {
+
+
+    @Test
+    public void RemovingAPartShouldReturnTrue(){
 
 
     Part_Outsourced osCase = new Part_Outsourced(GetIdNumber.getNextIdNumber(),
@@ -22,17 +27,15 @@ public class InventoryTests {
     Part_InHouse ihLogicCircuit = new Part_InHouse(GetIdNumber.getNextIdNumber(),
             "Logic Circuit", 5d, 8, 2, 10, 201);
 
-
-    @Test
-    public void RemovingAPartShouldReturnTrue(){
-        Inventory.getAllParts().add(osCase);
-        Inventory.getAllParts().add(ihSimpleCircuit);
-        Inventory.getAllParts().add(ihLogicCircuit);
-        Assert.assertEquals(3, Inventory.getAllParts().size());
-        Assert.assertTrue( Inventory.deletePart(osCase));
-        Assert.assertEquals(2, Inventory.getAllParts().size());
+        Inventory inv = new Inventory();
+        inv.getAllParts().add(osCase);
+        inv.getAllParts().add(ihSimpleCircuit);
+        inv.getAllParts().add(ihLogicCircuit);
+        Assert.assertEquals(3, inv.getAllParts().size());
+        Assert.assertTrue( inv.deletePart(osCase));
+        Assert.assertEquals(2, inv.getAllParts().size());
         ObservableList<Part> lookUpResults = FXCollections.observableArrayList();
-        lookUpResults = Inventory.lookupPart("Case");
+        lookUpResults = inv.lookupPart("Case");
         Assert.assertEquals(0, lookUpResults.size());
     }
 
