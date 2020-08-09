@@ -11,7 +11,7 @@ public class Part_Outsourced extends Part {
         setCompanyName(companyName);
     }
 
-    public Part_Outsourced(){} // should throw not implemented exception
+    public Part_Outsourced(){} // should throw not implemented exception - used for testing
 
 
     public void setCompanyName(String companyName){

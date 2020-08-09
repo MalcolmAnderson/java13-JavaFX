@@ -1,14 +1,20 @@
 package View_Controller;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public class MainScreenController {
@@ -27,8 +33,22 @@ public class MainScreenController {
     }
 
     // Handler for Part Logic
+
     @FXML
-    public void OnButtonClicked_PartAdd(){
+    public void OnMouseClicked_PartAdd_Only(ActionEvent event) throws IOException {
+        System.out.println("Hello from PartAdd_Only");
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/AddModify_Part.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        // this line gets the stage info
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
+    }
+
+    @FXML
+    public void OnMouseClicked_PartAdd(){
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.initOwner(idMainScreen.getScene().getWindow());
         try{

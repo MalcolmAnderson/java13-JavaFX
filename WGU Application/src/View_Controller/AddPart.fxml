@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="251.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.AddPart">
+   <children>
+      <Button layoutX="301.0" layoutY="204.0" mnemonicParsing="false" text="Exit Add Part" />
+      <Label fx:id="labelText" layoutX="62.0" layoutY="79.0" text="This text should come from calling screen" />
+   </children>
+</AnchorPane>

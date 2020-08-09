@@ -11,7 +11,7 @@ public class Part_InHouse extends Part {
         setMachineId(machineId);
     }
 
-    public Part_InHouse(){} // should throw not implemented exception
+    public Part_InHouse(){} // should throw not implemented exception - used for testing
 
 
     public void setMachineId(int machineId){
