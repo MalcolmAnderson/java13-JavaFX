@@ -1,5 +1,8 @@
 package View_Controller;
 
+import Model.Inventory;
+import Model.Part;
+import Model.Product;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -11,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -18,6 +22,14 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class MainScreenController {
+
+//    @FXML
+//    private ListView<Part> lv_Parts;
+//    lv_Parts = inv.getAllParts();
+
+    @FXML
+    private ListView<Product> lv_Products;
+
 
     @FXML
     private GridPane addModify_Part;

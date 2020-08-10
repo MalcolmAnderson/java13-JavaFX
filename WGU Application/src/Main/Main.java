@@ -14,6 +14,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../View_Controller/MainScreen.fxml"));
+
         primaryStage.setTitle("Hello World");
 //        primaryStage.setScene(new Scene(root, 900, 350));
         primaryStage.setScene(new Scene(root));
@@ -23,6 +24,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         Inventory inv = ManageTestData.BuildInventory();
+
+        ObservableList<Part> parts = inv.getAllParts();
         ObservableList<Product> products = inv.getAllProducts();
         int prodCount = products.size();
         inv.PrintAllParts();
