@@ -16,10 +16,10 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <CheckBox mnemonicParsing="false" text="Pepperoni" />
-            <CheckBox mnemonicParsing="false" text="Pineapple" />
-            <CheckBox mnemonicParsing="false" text="Bacon" />
-            <Button mnemonicParsing="false" text="Order Pizza" />
+            <CheckBox fx:id="pepperoniCheckBox" mnemonicParsing="false" text="Pepperoni" />
+            <CheckBox fx:id="pineappleCheckBox" mnemonicParsing="false" text="Pineapple" />
+            <CheckBox fx:id="baconCheckBox" mnemonicParsing="false" text="Bacon" />
+            <Button mnemonicParsing="false" onAction="#pizzaOrderButtonPushed" text="Order Pizza" />
             <Label fx:id="pizzaOrderLabel" alignment="TOP_LEFT" prefHeight="93.0" prefWidth="186.0" text="Label" />
          </children>
       </VBox>
