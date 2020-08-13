@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/219-MoreSceneBuilder/219-MoreSceneBuilder.iml" filepath="$PROJECT_DIR$/219-MoreSceneBuilder/219-MoreSceneBuilder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Controls/Controls.iml" filepath="$PROJECT_DIR$/Controls/Controls.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Events/Events.iml" filepath="$PROJECT_DIR$/Events/Events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaFX Application/JavaFX Application.iml" filepath="$PROJECT_DIR$/JavaFX Application/JavaFX Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Layouts/Layouts.iml" filepath="$PROJECT_DIR$/Layouts/Layouts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lynda_UI/Lynda_UI.iml" filepath="$PROJECT_DIR$/Lynda_UI/Lynda_UI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Malcolm_mvc/Malcolm_mvc.iml" filepath="$PROJECT_DIR$/Malcolm_mvc/Malcolm_mvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SceneBuilder_01/SceneBuilder_01.iml" filepath="$PROJECT_DIR$/SceneBuilder_01/SceneBuilder_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ToDoList/ToDoList.iml" filepath="$PROJECT_DIR$/ToDoList/ToDoList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WGU Application/WGU Application.iml" filepath="$PROJECT_DIR$/WGU Application/WGU Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java13-JavaFX.iml" filepath="$PROJECT_DIR$/.idea/java13-JavaFX.iml" />
+    </modules>
+  </component>
+</project>
