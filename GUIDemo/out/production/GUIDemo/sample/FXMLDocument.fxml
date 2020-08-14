@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -19,7 +20,7 @@
                <children>
                   <Label text="CheckBox Object">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
                   <CheckBox fx:id="pepperoniCheckBox" mnemonicParsing="false" text="Pepperoni" />
@@ -33,7 +34,7 @@
                <children>
                   <Label text="ChoiceBox Object">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
                   <ChoiceBox fx:id="choiceBox" prefWidth="150.0" />
@@ -45,11 +46,25 @@
                <children>
                   <Label text="ComboBox Object">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="comboBox" onAction="#comboBoxWasUpdated" prefWidth="150.0" />
                   <Label fx:id="comboBoxLabel" text="Label" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="RadioButton Objects">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="phpRadioButton" mnemonicParsing="false" onAction="#radioButtonChanged" text="PHP" />
+                  <RadioButton fx:id="javaRadioButton" mnemonicParsing="false" onAction="#radioButtonChanged" text="Java" />
+                  <RadioButton fx:id="cSharpRadioButton" mnemonicParsing="false" onAction="#radioButtonChanged" text="C#" />
+                  <RadioButton fx:id="cPlusPlusRadioButton" mnemonicParsing="false" onAction="#radioButtonChanged" text="C++" />
+                  <Label fx:id="radioButtonLabel" text="Label" />
                </children>
             </VBox>
          </children>

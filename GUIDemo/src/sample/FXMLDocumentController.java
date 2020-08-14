@@ -9,6 +9,27 @@ import java.util.ResourceBundle;
 
 public class FXMLDocumentController implements Initializable {
 
+    // These items are for the RadioButton examples
+    private ToggleGroup favLangToggleGroup;
+    @FXML private RadioButton phpRadioButton;
+    @FXML private RadioButton javaRadioButton;
+    @FXML private RadioButton cSharpRadioButton;
+    @FXML private RadioButton cPlusPlusRadioButton;
+    @FXML private Label radioButtonLabel;
+
+    public void radioButtonChanged(){
+        if(this.favLangToggleGroup.getSelectedToggle().equals(this.cPlusPlusRadioButton)){
+            radioButtonLabel.setText("The selected item is: C++");
+        } else if(this.favLangToggleGroup.getSelectedToggle().equals(this.cSharpRadioButton)){
+            radioButtonLabel.setText("The selected item is: C#");
+        } else if(this.favLangToggleGroup.getSelectedToggle().equals(this.phpRadioButton)){
+            radioButtonLabel.setText("The selected item is: php");
+        } else if(this.favLangToggleGroup.getSelectedToggle().equals(this.javaRadioButton)){
+            radioButtonLabel.setText("The selected item is: Java");
+        }
+
+    }
+
     // These items are for the ComboBox example
     @FXML private ComboBox comboBox;
     @FXML private Label comboBoxLabel;
@@ -70,11 +91,19 @@ public class FXMLDocumentController implements Initializable {
         choiceBox.getItems().addAll("Oranges", "Pears", "Raspberries");
         choiceBox.setValue("Apples");
 
-        // these items are for configuring the comboBox
+        // these items are for configuring the ComboBox
         comboBox.getItems().add("COMP1030");
         comboBox.getItems().addAll("COMP1008", "MGMT2003", "MGMT2010");
-        //comboBox.set
         comboBoxLabel.setText("");
+
+        // these items are for configuring the RadioButtons
+        radioButtonLabel.setText("");
+
+        favLangToggleGroup = new ToggleGroup();
+        this.cPlusPlusRadioButton.setToggleGroup(favLangToggleGroup);
+        this.cSharpRadioButton.setToggleGroup(favLangToggleGroup);
+        this.phpRadioButton.setToggleGroup(favLangToggleGroup);
+        this.javaRadioButton.setToggleGroup(favLangToggleGroup);
 
 
     }
