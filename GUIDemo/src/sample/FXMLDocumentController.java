@@ -2,17 +2,22 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FXMLDocumentController implements Initializable {
 
+    // These items are for the ComboBox example
+    @FXML private ComboBox comboBox;
+    @FXML private Label comboBoxLabel;
 
+
+    public void comboBoxWasUpdated(){
+        String message = "Course selected: \n" + comboBox.getValue().toString();
+        comboBoxLabel.setText(message);
+    }
 
 
 
@@ -64,6 +69,12 @@ public class FXMLDocumentController implements Initializable {
         choiceBox.getItems().add("Pears");
         choiceBox.getItems().addAll("Oranges", "Pears", "Raspberries");
         choiceBox.setValue("Apples");
+
+        // these items are for configuring the comboBox
+        comboBox.getItems().add("COMP1030");
+        comboBox.getItems().addAll("COMP1008", "MGMT2003", "MGMT2010");
+        //comboBox.set
+        comboBoxLabel.setText("");
 
 
     }
