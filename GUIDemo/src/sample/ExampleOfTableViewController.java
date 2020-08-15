@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,26 @@ public class ExampleOfTableViewController implements Initializable {
     @FXML private TableColumn<Person, String> firstNameColumn;
     @FXML private TableColumn<Person, String> lastNameColumn;
     @FXML private TableColumn<Person, LocalDate> birthdayColumn;
+
+    public void changeFirstNameCellEvent(TableColumn.CellEditEvent editedCell){
+        System.out.println("double click in firstName column");
+        Person personSelected = tableView.getSelectionModel().getSelectedItem();
+        personSelected.setFirstName(editedCell.getNewValue().toString());
+    }
+
+    public void changeLastNameCellEvent(TableColumn.CellEditEvent editedCell){
+        System.out.println("double click in lastName column");
+        Person personSelected = tableView.getSelectionModel().getSelectedItem();
+        personSelected.setLastName(editedCell.getNewValue().toString());
+    }
+
+    public void changeBirthdayCellEvent(TableColumn.CellEditEvent editedCell){
+        System.out.println("double click in birthday column");
+//        Person personSelected = tableView.getSelectionModel().getSelectedItem();
+//        personSelected.setBirthday((LocalDate)editedCell.getNewValue());
+    }
+
+
 
     // change scene
     public void changeScreenButtonPushed(ActionEvent event) throws IOException {
@@ -50,6 +71,11 @@ public class ExampleOfTableViewController implements Initializable {
         // load dummy data
         tableView.setItems(getPeople());
 
+        // update table to allow edits
+        tableView.setEditable(true);
+        firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        //birthdayColumn.setCellFactory();
     }
 
     // create dummy data

@@ -17,11 +17,11 @@
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" layoutX="23.0" layoutY="67.0" prefHeight="200.0" prefWidth="413.0">
+            <TableView fx:id="tableView" editable="true" layoutX="23.0" layoutY="67.0" prefHeight="200.0" prefWidth="413.0">
               <columns>
-                <TableColumn fx:id="firstNameColumn" prefWidth="110.0" text="First Name" />
-                <TableColumn fx:id="lastNameColumn" prefWidth="118.0" text="Last Name" />
-                  <TableColumn fx:id="birthdayColumn" prefWidth="115.0" text="Birthday" />
+                <TableColumn fx:id="firstNameColumn" onEditCommit="#changeFirstNameCellEvent" prefWidth="110.0" text="First Name" />
+                <TableColumn fx:id="lastNameColumn" onEditCommit="#changeLastNameCellEvent" prefWidth="118.0" text="Last Name" />
+                  <TableColumn fx:id="birthdayColumn" onEditCommit="#changeBirthdayCellEvent" prefWidth="115.0" text="Birthday" />
               </columns>
             </TableView>
          </children>
