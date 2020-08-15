@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -8,6 +9,20 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FXMLDocumentController implements Initializable {
+
+    // These items are for the ListView and TextArea examples
+    @FXML private ListView listView;
+    @FXML private TextArea golfTextArea;
+
+    public void listViewButtonPushed(){
+        String textAreaString = "";
+        ObservableList listOfItems = listView.getSelectionModel().getSelectedItems();
+        for(Object item: listOfItems){
+            textAreaString += String.format("%s%n", (String) item);
+        }
+        golfTextArea.setText(textAreaString);
+    }
+
 
     // These items are for the RadioButton examples
     private ToggleGroup favLangToggleGroup;
@@ -105,6 +120,9 @@ public class FXMLDocumentController implements Initializable {
         this.phpRadioButton.setToggleGroup(favLangToggleGroup);
         this.javaRadioButton.setToggleGroup(favLangToggleGroup);
 
+        // these items are for configuring the ListView and TextArea
+        listView.getItems().addAll("Golf Balls", "Wedges", "Irons", "Tees", "Driver", "Putter");
+        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
     }
 }
