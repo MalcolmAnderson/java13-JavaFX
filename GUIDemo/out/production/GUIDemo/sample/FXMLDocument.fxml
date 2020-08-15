@@ -92,7 +92,7 @@
             </VBox>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#listViewButtonPushed" text="Selected Gear -&gt;" />
+                  <Button mnemonicParsing="false" onAction="#listViewButtonPushed" prefWidth="200.0" text="Selected Gear -&gt;" />
                </children>
             </StackPane>
             <VBox prefHeight="200.0" prefWidth="200.0">
@@ -108,6 +108,11 @@
                   <Insets left="10.0" />
                </padding>
             </VBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="49.0" layoutY="240.0" mnemonicParsing="false" onAction="#changeScreenButtonPushed" text="Go to Table View" />
+               </children>
+            </AnchorPane>
          </children>
       </HBox>
    </children>
