@@ -4,10 +4,13 @@ import Model.Inventory;
 import Model.Part;
 import Model.Product;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,13 +22,28 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
-public class MainScreenController {
+public class MainScreenController implements Initializable {
 
-//    @FXML
-//    private ListView<Part> lv_Parts;
-//    lv_Parts = inv.getAllParts();
+
+    private Inventory inv;
+    ObservableList<Part> allParts;
+    ObservableList<Product> allProducts;
+    public void loadInventory(Inventory inv){
+        this.inv = inv;
+        System.out.println(inv.getAllParts().size());
+        //List<Part> tempParts = this.inv.getAllParts();
+        allParts = inv.getAllParts();
+        allProducts = inv.getAllProducts();
+        System.out.println("Inventory loaded into MainScreenController");
+    }
+
+    @FXML
+    private ListView<Part> lv_Parts;
 
     @FXML
     private ListView<Product> lv_Products;
@@ -44,7 +62,12 @@ public class MainScreenController {
         Platform.exit();
     }
 
-    // Handler for Part Logic
+    public void DoSomeTesting(){
+        System.out.println("Doing some testing");
+        System.out.println(allParts.size());
+        System.out.println(allProducts.size());
+    }
+
 
     @FXML
     public void OnMouseClicked_PartAdd_Only(ActionEvent event) throws IOException {
@@ -90,6 +113,12 @@ public class MainScreenController {
     public void OnButtonClicked_ProductAdd(){
     }
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lv_Products.setItems(allProducts);
+        lv_Parts.setItems(allParts);
+    }
 
 
 

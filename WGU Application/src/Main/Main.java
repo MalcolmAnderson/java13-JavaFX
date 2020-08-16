@@ -17,6 +17,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Inventory inv = ManageTestData.BuildInventory();
+
+        //ObservableList<Part> parts = inv.getAllParts();
+        //ObservableList<Product> products = inv.getAllProducts();
+        //int prodCount = products.size();
+        inv.PrintAllParts();
+        inv.PrintAllProducts();
+        ListInventory(inv);
+
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../View_Controller/MainScreen.fxml"));
         Parent mainScreenParent = loader.load();
@@ -24,25 +34,15 @@ public class Main extends Application {
 
         // get controller and load data
         MainScreenController mainScreenController = loader.getController();
-        //mainScreenController.loadInventory(inv);
+        mainScreenController.loadInventory(inv);
 
-
-        primaryStage.setTitle("Hello World");
-//        primaryStage.setScene(new Scene(root, 900, 350));
+        primaryStage.setTitle("Inventory Management System");
         primaryStage.setScene(mainScreenScene);
         primaryStage.show();
     }
 
 
     public static void main(String[] args) {
-        Inventory inv = ManageTestData.BuildInventory();
-
-        ObservableList<Part> parts = inv.getAllParts();
-        ObservableList<Product> products = inv.getAllProducts();
-        int prodCount = products.size();
-        inv.PrintAllParts();
-        inv.PrintAllProducts();
-        ListInventory(inv);
 
         launch(args);
 
