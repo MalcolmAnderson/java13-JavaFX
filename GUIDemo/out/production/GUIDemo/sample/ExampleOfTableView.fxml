@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -19,14 +20,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <VBox layoutX="29.0" layoutY="27.0" prefHeight="449.0" prefWidth="650.0" spacing="10.0">
+      <VBox layoutX="29.0" layoutY="27.0" prefHeight="478.0" prefWidth="650.0" spacing="10.0">
          <children>
             <Label text="TableView Object">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="tableView" editable="true" prefHeight="105.0" prefWidth="650.0">
+            <TableView fx:id="tableView" editable="true" prefHeight="185.0" prefWidth="650.0">
               <columns>
                 <TableColumn fx:id="firstNameColumn" onEditCommit="#changeFirstNameCellEvent" prefWidth="110.0" text="First Name" />
                 <TableColumn fx:id="lastNameColumn" onEditCommit="#changeLastNameCellEvent" prefWidth="118.0" text="Last Name" />
@@ -40,11 +41,15 @@
                   <DatePicker fx:id="birthdayDatePicker" />
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#newPersonButtonPushed" text="Add New Person" />
+                  <Button mnemonicParsing="false" onAction="#newPersonButtonPushed" prefWidth="150.0" text="Add New Person" />
+                  <Button mnemonicParsing="false" onAction="#deletePersonPushed" prefWidth="150.0" text="Delete Person(s)" />
+                  <Button mnemonicParsing="false" onAction="#listSelectedPeople" prefWidth="150.0" text="List Seleceted People" />
+                  <Button mnemonicParsing="false" onAction="#changeSceneToDetailedPersonView" prefWidth="150.0" text="Detail Person View" />
                </children>
             </HBox>
+            <TextArea fx:id="selectedPeople" prefHeight="104.0" prefWidth="650.0" />
          </children>
       </VBox>
    </children>

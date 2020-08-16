@@ -27,7 +27,6 @@ public class FXMLDocumentController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(tableViewScene);
         window.show();
-
     }
 
     // These items are for the ListView and TextArea examples
