@@ -10,8 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
@@ -28,6 +30,11 @@ public class ExampleOfTableViewController implements Initializable {
     @FXML private TableColumn<Person, String> firstNameColumn;
     @FXML private TableColumn<Person, String> lastNameColumn;
     @FXML private TableColumn<Person, LocalDate> birthdayColumn;
+
+    // instance variable used to create a new person
+    @FXML private TextField firstNameTextField;
+    @FXML private TextField lastNameTextField;
+    @FXML private DatePicker birthdayDatePicker;
 
     public void changeFirstNameCellEvent(TableColumn.CellEditEvent editedCell){
         System.out.println("double click in firstName column");
@@ -76,6 +83,17 @@ public class ExampleOfTableViewController implements Initializable {
         firstNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         //birthdayColumn.setCellFactory();
+    }
+
+    // method to create new person
+    public void newPersonButtonPushed(){
+        Person newPerson = new Person(
+                firstNameTextField.getText(),
+                lastNameTextField.getText(),
+                birthdayDatePicker.getValue());
+        // Get all the items from the table as a list,
+        // then add the new person to the list
+        tableView.getItems().add(newPerson);
     }
 
     // create dummy data
