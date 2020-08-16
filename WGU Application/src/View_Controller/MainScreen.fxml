@@ -5,60 +5,100 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="idMainScreen" alignment="center" hgap="10" prefHeight="389.0" prefWidth="877.0" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.MainScreenController">
-   <columnConstraints>
-      <ColumnConstraints maxWidth="459.0" minWidth="392.0" prefWidth="422.0" />
-      <ColumnConstraints maxWidth="452.0" minWidth="385.0" prefWidth="422.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
+
+<AnchorPane prefHeight="385.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View_Controller.MainScreenController">
    <children>
-      <Pane prefHeight="274.0" prefWidth="422.0" GridPane.rowIndex="1">
+      <VBox prefWidth="800.0" spacing="10.0">
          <children>
-            <Button fx:id="buttonPartAdd" layoutX="192.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#OnMouseClicked_PartAdd" text="Add" />
-            <ListView fx:id="lv_Parts" layoutX="14.0" layoutY="36.0" prefHeight="204.0" prefWidth="394.0" />
-            <Label layoutX="14.0" layoutY="1.0" text="Parts">
+            <Label text="Inventory Management System">
                <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Label>
-            <Button fx:id="buttonPartSearch" layoutX="151.0" layoutY="3.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartSearch" text="Search" />
-            <TextField fx:id="textPartSearch" layoutX="222.0" layoutY="3.0" onAction="#handleAction_PartSearch" />
-            <Button fx:id="buttonPartModify" layoutX="242.0" layoutY="245.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartModify" text="Modify" />
-            <Button fx:id="buttonPartDelete" layoutX="308.0" layoutY="245.0" mnemonicParsing="false" onAction="#OnButtonClicked_PartDelete" text="Delete" />
-            <Button layoutX="36.0" layoutY="245.0" mnemonicParsing="false" onAction="#OnMouseClicked_PartAdd_Only" text="Add Part - Only" />
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <HBox prefHeight="300.0" prefWidth="800.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="400.0" spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Parts">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" right="90.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="buttonPartSearch" mnemonicParsing="false" onAction="#OnButtonClicked_PartSearch" text="Search">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <TextField fx:id="textPartSearch" alignment="TOP_LEFT" onAction="#handleAction_PartSearch" />
+                           </children>
+                        </HBox>
+                        <ListView fx:id="lv_Parts" prefHeight="300.0" prefWidth="400.0" />
+                        <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#OnMouseClicked_PartAdd_Only" text="Add Part - Only" />
+                              <Button fx:id="buttonPartAdd" mnemonicParsing="false" onMouseClicked="#OnMouseClicked_PartAdd" text="Add" />
+                              <Button fx:id="buttonPartModify" mnemonicParsing="false" onAction="#OnButtonClicked_PartModify" text="Modify" />
+                              <Button fx:id="buttonPartDelete" mnemonicParsing="false" onAction="#OnButtonClicked_PartDelete" text="Delete" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="400.0" spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <Label text="Products">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" right="84.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="buttonProductSearch" mnemonicParsing="false" onAction="#OnButtonClicked_ProductSearch" text="Search" />
+                              <TextField fx:id="textProductSearch" onAction="#handleAction_ProductSearch" />
+                           </children>
+                        </HBox>
+                        <ListView fx:id="lv_Products" prefHeight="300.0" prefWidth="400.0" />
+                        <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnButtonClicked_ProductAdd" text="Add" />
+                              <Button fx:id="buttonProductModify" mnemonicParsing="false" onAction="#OnButtonClicked_ProductModify" text="Modify" />
+                              <Button fx:id="buttonProductDelete" mnemonicParsing="false" onAction="#OnButtonClicked_ProductDelete" text="Delete" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_RIGHT" prefWidth="200.0">
+               <children>
+                  <Button fx:id="buttonExit" mnemonicParsing="false" onAction="#OnButtonClicked_Exit" text="Exit" />
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
          </children>
-      </Pane>
-      <Pane prefHeight="283.0" prefWidth="422.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <children>
-            <ListView fx:id="lv_Products" layoutX="14.0" layoutY="35.0" prefHeight="210.0" prefWidth="370.0" />
-            <Label layoutX="14.0" layoutY="2.0" text="Products">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Label>
-            <Button fx:id="buttonProductAdd" layoutX="211.0" layoutY="254.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductAdd" text="Add" />
-            <Button fx:id="buttonProductModify" layoutX="264.0" layoutY="254.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductModify" text="Modify" />
-            <Button fx:id="buttonProductDelete" layoutX="327.0" layoutY="254.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductDelete" text="Delete" />
-            <Button fx:id="buttonProductSearch" layoutX="148.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnButtonClicked_ProductSearch" text="Search" />
-            <TextField fx:id="textProductSearch" layoutX="217.0" layoutY="3.0" onAction="#handleAction_ProductSearch" />
-         </children>
-      </Pane>
-      <Label text="Inventory Management System">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font></Label>
-      <Button fx:id="buttonExit" mnemonicParsing="false" onAction="#OnButtonClicked_Exit" text="Exit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets right="40.0" />
-         </GridPane.margin></Button>
+      </VBox>
    </children>
-</GridPane>
+</AnchorPane>

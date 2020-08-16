@@ -1,6 +1,7 @@
 package Main;
 
 import Model.*;
+import View_Controller.MainScreenController;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +12,24 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private Inventory inv;
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../View_Controller/MainScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../View_Controller/MainScreen.fxml"));
+        Parent mainScreenParent = loader.load();
+        Scene mainScreenScene = new Scene(mainScreenParent);
+
+        // get controller and load data
+        MainScreenController mainScreenController = loader.getController();
+        //mainScreenController.loadInventory(inv);
+
 
         primaryStage.setTitle("Hello World");
 //        primaryStage.setScene(new Scene(root, 900, 350));
-        primaryStage.setScene(new Scene(root));
+        primaryStage.setScene(mainScreenScene);
         primaryStage.show();
     }
 
