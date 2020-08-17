@@ -27,7 +27,7 @@ public class ManageTestData {
         inv.addPart(osSmRegisterBanks);
 
         Product prodPCMarkI = new Product(GetIdNumber.getNextIdNumber(),
-                "PC Mark II", 800d, 4, 2, 5);
+                "PC Mark I", 800d, 4, 2, 5);
         prodPCMarkI.addAssociatedPart(osCase);
         prodPCMarkI.addAssociatedPart(ihSimpleCircuit);
         prodPCMarkI.addAssociatedPart(osLEDMatrix);

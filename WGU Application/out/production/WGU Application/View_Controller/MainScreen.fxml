@@ -3,7 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -44,7 +45,14 @@
                               <TextField fx:id="textPartSearch" alignment="TOP_LEFT" onAction="#handleAction_PartSearch" />
                            </children>
                         </HBox>
-                        <ListView fx:id="lv_Parts" prefHeight="300.0" prefWidth="400.0" />
+                        <TableView prefHeight="300.0" prefWidth="400.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Part ID" />
+                            <TableColumn prefWidth="75.0" text="Part Name" />
+                              <TableColumn prefWidth="102.0" text="Inventory Level" />
+                              <TableColumn prefWidth="147.0" text="Price / Cost per Unit" />
+                          </columns>
+                        </TableView>
                         <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#DoSomeTesting" text="Add Part - Only" />
@@ -74,7 +82,14 @@
                               <TextField fx:id="textProductSearch" onAction="#handleAction_ProductSearch" />
                            </children>
                         </HBox>
-                        <ListView fx:id="lv_Products" prefHeight="300.0" prefWidth="400.0" />
+                        <TableView prefHeight="300.0" prefWidth="400.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Product ID" />
+                            <TableColumn prefWidth="117.0" text="Product Name" />
+                              <TableColumn prefWidth="107.0" text="Inventory Level" />
+                              <TableColumn prefWidth="99.0" text="Price per Unit" />
+                          </columns>
+                        </TableView>
                         <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
                            <children>
                               <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnButtonClicked_ProductAdd" text="Add" />
