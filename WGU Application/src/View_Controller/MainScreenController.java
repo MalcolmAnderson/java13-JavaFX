@@ -25,13 +25,30 @@ import java.util.ResourceBundle;
 
 public class MainScreenController implements Initializable {
 
+    @FXML private TableView partsTableView;
+    @FXML private TableColumn<Part, String> partIdColumn;
+    @FXML private TableColumn<Part, String> partNameColumn;
+    @FXML private TableColumn<Part, String> partInventoryLevelColumn;
+    @FXML private TableColumn<Part, String> partPricePerUnitColumn;
+
+
+    @FXML private TableView productsTableView;
+    @FXML private TableColumn<Part, String> productIdColumn;
+    @FXML private TableColumn<Part, String> productNameColumn;
+    @FXML private TableColumn<Part, String> productInventoryLevelColumn;
+    @FXML private TableColumn<Part, String> productPricePerUnitColumn;
+
+
+
     @FXML private TextField textPartSearch;
     @FXML private TextField textProductSearch;
-    @FXML private ListView<Part> lv_Parts;
-    @FXML private ListView<Product> lv_Products;
+
+
+    //    @FXML private ListView<Part> lv_Parts;
+//    @FXML private ListView<Product> lv_Products;
     @FXML private GridPane addModify_Part;
     @FXML private Button buttonExit;
-    @FXML private GridPane idMainScreen;
+//    @FXML private GridPane idMainScreen;
 
     private Inventory inv;
     ObservableList<Part> allParts;
@@ -43,8 +60,8 @@ public class MainScreenController implements Initializable {
         allParts = inv.getAllParts();
         allProducts = inv.getAllProducts();
         System.out.println("Inventory loaded into MainScreenController");
-        lv_Products.getItems().setAll(allProducts);
-        lv_Parts.setItems(allParts);
+        //lv_Products.getItems().setAll(allProducts);
+        //lv_Parts.setItems(allParts);
     }
 
     public void OnButtonClicked_Exit(){
