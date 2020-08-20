@@ -3,6 +3,7 @@ import Model.Inventory;
 import Model.Part;
 import Model.Product;
 import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -124,7 +126,12 @@ public class MainScreenController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 //        lv_Products.setItems(allProducts);
 //        lv_Parts.setItems(allParts);
+        // setup parts table
+        //partIdColumn.setCellFactory(new PropertyValueFactory("idS"));S
+        //partNameColumn.setCellFactory(new PropertyValueFactory<Part, String>("getName()"));
     }
+
+
 
 
 
