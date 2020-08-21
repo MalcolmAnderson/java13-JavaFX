@@ -1,6 +1,4 @@
-package Model;
-
-import Model.Part;
+package model;
 
 public class Part_InHouse extends Part {
 

@@ -1,9 +1,8 @@
-package Main;
+package main;
 
-import Model.*;
-import View_Controller.MainScreenController;
+import model.*;
+import controller.MainScreenController;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,7 +27,7 @@ public class Main extends Application {
 
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../View_Controller/MainScreen.fxml"));
+        loader.setLocation(getClass().getResource("../view/MainScreen.fxml"));
         Parent mainScreenParent = loader.load();
         Scene mainScreenScene = new Scene(mainScreenParent);
 

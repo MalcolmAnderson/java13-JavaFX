@@ -1,8 +1,8 @@
-import Model.GetIdNumber;
+import model.GetIdNumber;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Model.Part_InHouse;
+import model.Part_InHouse;
 
 public class PartTests {
     @Test

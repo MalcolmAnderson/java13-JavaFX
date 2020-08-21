@@ -1,14 +1,13 @@
 
-import Model.GetIdNumber;
-import Model.Inventory;
-import Model.Part_InHouse;
-import Model.Part_Outsourced;
-import Model.Part;
+import model.GetIdNumber;
+import model.Inventory;
+import model.Part_InHouse;
+import model.Part_Outsourced;
+import model.Part;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 public class InventoryTests {

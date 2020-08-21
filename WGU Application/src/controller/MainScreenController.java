@@ -1,14 +1,11 @@
-package View_Controller;
-import Model.Inventory;
-import Model.Part;
-import Model.Product;
+package controller;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Inventory;
+import model.Part;
+import model.Product;
 import javafx.application.Platform;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,13 +13,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class MainScreenController implements Initializable {
@@ -56,14 +51,15 @@ public class MainScreenController implements Initializable {
     ObservableList<Part> allParts;
     ObservableList<Product> allProducts;
     public void loadInventory(Inventory inv){
+        System.out.println("Begin loadInventory");
         this.inv = inv;
         System.out.println(inv.getAllParts().size());
-        //List<Part> tempParts = this.inv.getAllParts();
         allParts = inv.getAllParts();
         allProducts = inv.getAllProducts();
         System.out.println("Inventory loaded into MainScreenController");
-        //lv_Products.getItems().setAll(allProducts);
-        //lv_Parts.setItems(allParts);
+        System.out.println("End loadInventory");
+
+        //partIdColumn.setCellValueFactory(PropertyValueFactory(String, id), "id");
     }
 
     public void OnButtonClicked_Exit(){
@@ -124,11 +120,13 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("Begin initialize");
 //        lv_Products.setItems(allProducts);
 //        lv_Parts.setItems(allParts);
         // setup parts table
         //partIdColumn.setCellFactory(new PropertyValueFactory("idS"));S
         //partNameColumn.setCellFactory(new PropertyValueFactory<Part, String>("getName()"));
+        System.out.println("End initialize");
     }
 
 
