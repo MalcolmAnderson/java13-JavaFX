@@ -59,7 +59,9 @@ public class MainScreenController implements Initializable {
         System.out.println("Inventory loaded into MainScreenController");
         System.out.println("End loadInventory");
 
-        //partIdColumn.setCellValueFactory(PropertyValueFactory(String, id), "id");
+        // partsTableView
+        // partIdColumn.setCellValueFactory(PropertyValueFactory(String, id), "id");
+        // partNameColumn
     }
 
     public void OnButtonClicked_Exit(){
