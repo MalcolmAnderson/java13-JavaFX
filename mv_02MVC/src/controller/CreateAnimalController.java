@@ -1,4 +1,4 @@
 package controller;
 
-public class AnimalDetailsController {
+public class CreateAnimalController {
 }

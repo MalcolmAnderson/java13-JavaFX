@@ -7,6 +7,7 @@ public class Dog extends Animal{
     }
     public Dog(String breed, int lifespan, double price) {
         super(breed, lifespan, price);
+        super.setPrice(super.getPrice()*2);
         this.sound = sound;
     }
 

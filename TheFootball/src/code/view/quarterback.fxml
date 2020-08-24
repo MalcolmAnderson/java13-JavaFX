@@ -96,7 +96,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" text="Break Huddle">
+                  <Button fx:id="btnBreakHuddle" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" text="Break Huddle">
                      <font>
                         <Font size="18.0" />
                      </font>

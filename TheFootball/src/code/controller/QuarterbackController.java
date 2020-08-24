@@ -25,6 +25,7 @@ public class QuarterbackController implements Initializable {
         return handOff;
     }
 
+    private ButtonType btnBreakHuddle;
     private ButtonType btnHandOffTheBall;
     private ButtonType btnPassTheBall;
     private ButtonType btnScreenPlay;
@@ -79,7 +80,13 @@ public class QuarterbackController implements Initializable {
 
         // open the running back
         try{
-            Parent root = FXMLLoader.load(getClass().getResource("/view/tightend.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/tightend.fxml"));
+            Parent root = loader.load();
+
+            // must get access to te controller to make the screen
+            // so using the getController method ...
+            TightendController te = loader.getController();
+            //te.screenPlay(theFootball);
 
             // set new stage
             Stage stage = new Stage();
@@ -89,5 +96,10 @@ public class QuarterbackController implements Initializable {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void onBreakHuddle(ActionEvent actionEvent){
+        // Disable Break button
+        //btnBreakHuddle.setDisable(true);
     }
 }
