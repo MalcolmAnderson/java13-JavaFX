@@ -12,27 +12,26 @@ public class AnimalDetailsController implements Initializable {
 
     FxmlNavigationTools navTools = new FxmlNavigationTools();
 
+    @FXML
+    private Label animalIdLbl;
 
-        @FXML
-        private Label animalIdlbl;
+    @FXML
+    private Label breedLbl;
 
-        @FXML
-        private Label breedLbl;
+    @FXML
+    private Label lifespanLbl;
 
-        @FXML
-        private Label lifespanLbl;
+    @FXML
+    private Label behaviorLbl;
 
-        @FXML
-        private Label behaviorLbl;
+    @FXML
+    private Label priceLbl;
 
-        @FXML
-        private Label priceLbl;
+    @FXML
+    private Label vaccLbl;
 
-        @FXML
-        private Label vaccLbl;
-
-        @FXML
-        private Label specialLbl;
+    @FXML
+    private Label specialLbl;
 
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) {

@@ -51,7 +51,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="animalIdlbl" text="Label" GridPane.columnIndex="1">
+            <Label fx:id="animalIdLbl" text="Label" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
