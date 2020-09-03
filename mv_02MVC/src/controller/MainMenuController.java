@@ -22,7 +22,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void onActionExit(ActionEvent event) {
-        System.out.println("onActionExit");
+        System.exit(0);
     }
 
     @Override
