@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.RadioButton;
@@ -31,6 +32,15 @@ public class CreateAnimalController implements Initializable {
         @FXML
         private RadioButton vaccNoRBtn;
 
+        @FXML
+        void onActionDisplayMainMenu(ActionEvent event) {
+
+        }
+
+        @FXML
+        void onActionSaveAnimal(ActionEvent event) {
+
+        }
 
 
 

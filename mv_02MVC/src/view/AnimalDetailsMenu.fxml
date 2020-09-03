@@ -98,7 +98,7 @@
       </GridPane>
       <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" text="Back">
+            <Button mnemonicParsing="false" onAction="#onActionDisplayMainMenu" text="Back">
                <font>
                   <Font size="18.0" />
                </font></Button>

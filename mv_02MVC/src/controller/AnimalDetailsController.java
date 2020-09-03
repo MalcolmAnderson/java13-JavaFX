@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -32,7 +33,10 @@ public class AnimalDetailsController implements Initializable {
         @FXML
         private Label specialLbl;
 
+    @FXML
+    void onActionDisplayMainMenu(ActionEvent event) {
 
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
