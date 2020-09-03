@@ -16,7 +16,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button maxWidth="92.0" mnemonicParsing="false" onAction="#onActionYes" text="Exit">
+      <Button maxWidth="92.0" mnemonicParsing="false" onAction="#onActionExit" text="Exit">
          <font>
             <Font size="18.0" />
          </font>

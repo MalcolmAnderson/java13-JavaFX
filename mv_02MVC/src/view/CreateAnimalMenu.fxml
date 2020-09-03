@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -77,8 +78,11 @@
                   <RadioButton fx:id="vaccYesRBtn" mnemonicParsing="false" text="Yes">
                      <font>
                         <Font size="18.0" />
-                     </font></RadioButton>
-                  <RadioButton fx:id="vaccNoRBtn" mnemonicParsing="false" text="No">
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="vaccTG" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="vaccNoRBtn" mnemonicParsing="false" text="No" toggleGroup="$vaccTG">
                      <font>
                         <Font size="18.0" />
                      </font></RadioButton>

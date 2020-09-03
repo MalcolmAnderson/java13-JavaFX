@@ -10,7 +10,8 @@ import javafx.scene.control.TableView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DisplayAnimalController implements Initializable {
+public class DisplayAnimalsController implements Initializable {
+    FxmlNavigationTools navTools = new FxmlNavigationTools();
 
 
 
@@ -32,12 +33,12 @@ public class DisplayAnimalController implements Initializable {
 
     @FXML
     void onActionDisplayAnimalDetails(ActionEvent event) {
-
+        navTools.openViewFromButtonEvent(event, "/view/AnimalDetailsMenu.fxml");
     }
 
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) {
-
+        navTools.openViewFromButtonEvent(event, "/view/MainMenu.fxml");
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 public class AnimalDetailsController implements Initializable {
 
+    FxmlNavigationTools navTools = new FxmlNavigationTools();
 
 
         @FXML
@@ -35,6 +36,8 @@ public class AnimalDetailsController implements Initializable {
 
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) {
+        System.out.println("go to Display Animal Menu");
+        navTools.openViewFromButtonEvent(event, "/View/DisplayAnimalMenu.fxml");
 
     }
 
