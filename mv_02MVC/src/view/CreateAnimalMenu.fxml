@@ -32,7 +32,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField promptText="ID Label" GridPane.columnIndex="1">
+            <TextField fx:id="animalIdTxt" promptText="ID Label" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -40,7 +40,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField promptText="Breed Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="breedTxt" promptText="Breed Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -48,7 +48,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField promptText="Lifespan Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="lifespanTxt" promptText="Lifespan Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -56,7 +56,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField promptText="Behavior Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="behaviorTxt" promptText="Behavior Label" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -64,7 +64,7 @@
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <TextField promptText="Price Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextField fx:id="priceTxt" promptText="Price Label" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font></TextField>
@@ -74,11 +74,11 @@
                </font></Label>
             <HBox alignment="CENTER_LEFT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Yes">
+                  <RadioButton fx:id="vaccYesRBtn" mnemonicParsing="false" text="Yes">
                      <font>
                         <Font size="18.0" />
                      </font></RadioButton>
-                  <RadioButton mnemonicParsing="false" text="No">
+                  <RadioButton fx:id="vaccNoRBtn" mnemonicParsing="false" text="No">
                      <font>
                         <Font size="18.0" />
                      </font></RadioButton>

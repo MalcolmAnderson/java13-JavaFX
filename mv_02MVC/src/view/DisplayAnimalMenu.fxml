@@ -8,16 +8,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="250.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AnimalDetailController">
+<VBox prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AnimalDetailController">
    <children>
-      <TableView prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="animalTableView" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="Breed" />
-            <TableColumn prefWidth="75.0" text="Lifespan" />
-            <TableColumn prefWidth="75.0" text="Price" />
+          <TableColumn fx:id="animalIdCol" prefWidth="120.0" text="ID" />
+          <TableColumn fx:id="breedCol" prefWidth="120.0" text="Breed" />
+            <TableColumn fx:id="lifespanCol" prefWidth="120.0" text="Lifespan" />
+            <TableColumn fx:id="priceCol" prefWidth="120.0" text="Price" />
         </columns>
+         <padding>
+            <Insets left="10.0" right="10.0" top="20.0" />
+         </padding>
       </TableView>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
          <children>
