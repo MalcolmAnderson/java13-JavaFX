@@ -38,7 +38,6 @@ public class AnimalDetailsController implements Initializable {
     void onActionDisplayMainMenu(ActionEvent event) {
         System.out.println("go to Display Animal Menu");
         navTools.openViewFromButtonEvent(event, "/View/DisplayAnimalMenu.fxml");
-
     }
 
     @Override
