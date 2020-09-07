@@ -75,37 +75,36 @@ public class MainScreenController implements Initializable {
         System.out.println(allProducts.size());
     }
 
-
+    // Handle Part Buttons
     @FXML
     void OnEventPartAdd(ActionEvent event){
         System.out.println("PartAdd Clicked");
-        navTools.openScreenWhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Add");
-
-//        Dialog<ButtonType> dialog = new Dialog<>();
-//        dialog.initOwner(idMainScreen.getScene().getWindow());
-//        try{
-//            Parent root = FXMLLoader.load(getClass().getResource("AddModify_Part.fxml"));
-//            dialog.getDialogPane().setContent(root);
-//        } catch (Exception e){
-//            System.out.println("Couldn't load the add part dialog");
-//            e.printStackTrace();
-//            return;
-//        }
-//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-//        Optional<ButtonType> result = dialog.showAndWait();
-//        if(result.isPresent() && result.get() == ButtonType.OK){
-//            System.out.println("OK pressed");
-//        } else {
-//            System.out.println("Cancel pressed");
-//        }
+        navTools.open_AddModify_PartController_WhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Add");
+    }
+    public void OnEventPartModify(ActionEvent event){
+        System.out.println("PartModify Clicked");
+        navTools.open_AddModify_PartController_WhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Modify");
+    }
+    public void OnEventPartDelete(ActionEvent event){
+        System.out.println("PartDelete Clicked");
     }
 
 
-    // Handlers for Product Logic
+    // Handle Product Buttons
     @FXML
-    public void OnButtonClicked_ProductAdd(){
+    public void OnEventProductAdd(ActionEvent event){
         System.out.println("ProductAdd Clicked");
+        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add");
+    }
+
+    public void OnEventProductModify(ActionEvent event){
+        System.out.println("ProductModify Clicked");
+        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Modify");
+    }
+
+
+    public void OnEventProductDelete(ActionEvent event){
+        System.out.println("ProductDelete Clicked");
     }
 
 
@@ -130,14 +129,6 @@ public class MainScreenController implements Initializable {
     public void OnButtonClicked_PartSearch(){
         System.out.println("PartSearch Clicked - Search on " + textPartSearch.getText());
     }
-
-    public void OnEventPartModify(ActionEvent event){
-        System.out.println("PartModify Clicked");
-        navTools.openScreenWhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Modify");
-    }
-    public void OnButtonClicked_PartDelete(){
-        System.out.println("PartDelete Clicked");
-    }
     public void handleAction_PartSearch(){
         System.out.println("handleAction_PartSearch Clicked");
     }
@@ -146,15 +137,6 @@ public class MainScreenController implements Initializable {
         System.out.println("ProductSearch Clicked - Search on " + textProductSearch.getText());
     }
 
-
-    public void OnButtonClicked_ProductModify(){
-        System.out.println("ProductModify Clicked");
-    }
-
-
-    public void OnButtonClicked_ProductDelete(){
-        System.out.println("ProductDelete Clicked");
-    }
 
 
     public void handleAction_ProductSearch(){

@@ -40,7 +40,7 @@ public class FxmlNavigationTools {
         }
     }
 
-    public void openScreenWhilePassingInventory(
+    public void open_AddModify_PartController_WhilePassingInventory(
             ActionEvent event,
             String viewNameAndPath,
             Inventory inv,
@@ -58,6 +58,33 @@ public class FxmlNavigationTools {
             addModify_partController.loadInventory(inv);
 
             stage.setTitle(transactionType + " Part Screen");
+
+            stage.setScene(mainScreenScene);
+            stage.show();
+        } catch (IOException ioe) {
+            // I don't care
+            System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
+        }
+    }
+
+    public void open_AddModify_ProductController_WhilePassingInventory(
+            ActionEvent event,
+            String viewNameAndPath,
+            Inventory inv,
+            String transactionType) {
+        // Assumes that the event variable is a button object
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource(viewNameAndPath));
+            Parent mainScreenParent = loader.load();
+            Scene mainScreenScene = new Scene(mainScreenParent);
+
+            // get controller and load data
+            AddModify_ProductController addModify_productController = loader.getController();
+            addModify_productController.loadInventory(inv);
+
+            stage.setTitle(transactionType + " Product Screen");
 
             stage.setScene(mainScreenScene);
             stage.show();
