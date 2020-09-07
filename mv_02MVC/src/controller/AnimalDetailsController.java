@@ -36,7 +36,7 @@ public class AnimalDetailsController implements Initializable {
     @FXML
     void onActionDisplayMainMenu(ActionEvent event) {
         System.out.println("go to Display Animal Menu");
-        navTools.openViewFromButtonEvent(event, "/View/DisplayAnimalMenu.fxml");
+        navTools.openViewFromButtonEvent(event, "/view/DisplayAnimalMenu.fxml");
     }
 
     @Override

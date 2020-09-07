@@ -18,12 +18,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Inventory inv = ManageTestData.BuildInventory();
 
-        //ObservableList<Part> parts = inv.getAllParts();
-        //ObservableList<Product> products = inv.getAllProducts();
-        //int prodCount = products.size();
-        inv.PrintAllParts();
-        inv.PrintAllProducts();
-        ListInventory(inv);
+
+//        inv.PrintAllParts();
+//        inv.PrintAllProducts();
+//        ListInventory(inv);
 
 
         FXMLLoader loader = new FXMLLoader();

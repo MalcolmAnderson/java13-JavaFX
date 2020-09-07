@@ -7,33 +7,29 @@ import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainScreenController implements Initializable {
 
+    FxmlNavigationTools navTools = new FxmlNavigationTools();
+
     @FXML private TableView partsTableView;
-    @FXML private TableColumn<Part, String> partIdColumn;
+    @FXML private TableColumn<Part, Integer> partIdColumn;
     @FXML private TableColumn<Part, String> partNameColumn;
-    @FXML private TableColumn<Part, String> partInventoryLevelColumn;
-    @FXML private TableColumn<Part, String> partPricePerUnitColumn;
+    @FXML private TableColumn<Part, Integer> partInventoryLevelColumn;
+    @FXML private TableColumn<Part, Double> partPricePerUnitColumn;
 
 
     @FXML private TableView productsTableView;
-    @FXML private TableColumn<Part, String> productIdColumn;
+    @FXML private TableColumn<Part, Integer> productIdColumn;
     @FXML private TableColumn<Part, String> productNameColumn;
-    @FXML private TableColumn<Part, String> productInventoryLevelColumn;
-    @FXML private TableColumn<Part, String> productPricePerUnitColumn;
+    @FXML private TableColumn<Part, Integer> productInventoryLevelColumn;
+    @FXML private TableColumn<Part, Double> productPricePerUnitColumn;
 
 
 
@@ -56,12 +52,17 @@ public class MainScreenController implements Initializable {
         System.out.println(inv.getAllParts().size());
         allParts = inv.getAllParts();
         allProducts = inv.getAllProducts();
+
+        partsTableView.setItems(inv.getAllParts());
+        partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
         System.out.println("Inventory loaded into MainScreenController");
         System.out.println("End loadInventory");
 
-        // partsTableView
-        // partIdColumn.setCellValueFactory(PropertyValueFactory(String, id), "id");
-        // partNameColumn
     }
 
     public void OnButtonClicked_Exit(){
@@ -76,21 +77,10 @@ public class MainScreenController implements Initializable {
 
 
     @FXML
-    public void OnMouseClicked_PartAdd_Only(ActionEvent event) throws IOException {
-        System.out.println("Hello from PartAdd_Only");
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("/AddModify_Part.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        // this line gets the stage info
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
-        window.setScene(tableViewScene);
-        window.show();
-    }
-
-    @FXML
-    public void OnMouseClicked_PartAdd(){
+    void OnEventPartAdd(ActionEvent event){
         System.out.println("PartAdd Clicked");
+        navTools.openScreenWhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Add");
+
 //        Dialog<ButtonType> dialog = new Dialog<>();
 //        dialog.initOwner(idMainScreen.getScene().getWindow());
 //        try{
@@ -122,12 +112,13 @@ public class MainScreenController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Begin initialize");
+        System.out.println("Begin initialize Table");
 //        lv_Products.setItems(allProducts);
 //        lv_Parts.setItems(allParts);
         // setup parts table
         //partIdColumn.setCellFactory(new PropertyValueFactory("idS"));S
         //partNameColumn.setCellFactory(new PropertyValueFactory<Part, String>("getName()"));
+
         System.out.println("End initialize");
     }
 
@@ -140,8 +131,9 @@ public class MainScreenController implements Initializable {
         System.out.println("PartSearch Clicked - Search on " + textPartSearch.getText());
     }
 
-    public void OnButtonClicked_PartModify(){
+    public void OnEventPartModify(ActionEvent event){
         System.out.println("PartModify Clicked");
+        navTools.openScreenWhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Modify");
     }
     public void OnButtonClicked_PartDelete(){
         System.out.println("PartDelete Clicked");
@@ -168,8 +160,6 @@ public class MainScreenController implements Initializable {
     public void handleAction_ProductSearch(){
         System.out.println("handleAction_ProductSearch Clicked");
     }
-
-
 
 
 }
