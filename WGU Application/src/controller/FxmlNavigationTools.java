@@ -56,6 +56,7 @@ public class FxmlNavigationTools {
             // get controller and load data
             AddModify_PartController addModify_partController = loader.getController();
             addModify_partController.loadInventory(inv);
+            addModify_partController.SetAddModifyLabel(transactionType);
 
             stage.setTitle(transactionType + " Part Screen");
 
