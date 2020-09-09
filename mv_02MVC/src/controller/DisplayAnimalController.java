@@ -63,6 +63,22 @@ public class DisplayAnimalController implements Initializable {
         return false;
     }
 
+    public boolean delete(int id){
+        for(Animal dog: DataProvider.getAllAnimals()){
+            if(dog.getId() == id){
+                return DataProvider.getAllAnimals().remove(dog);
+            }
+        }
+        return false;
+    }
+
+    public Animal selectAnimal(int id){
+        for(Animal dog : DataProvider.getAllAnimals()){
+
+        }
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         animalTableView.setItems(DataProvider.getAllAnimals());
@@ -75,10 +91,15 @@ public class DisplayAnimalController implements Initializable {
         //animalVaccinatedIdCol.setCellValueFactory(new PropertyValueFactory<>("vaccinated"));
 
 
-        if(update(5, new Dog(5, "Toy", 13, "Sleepy", 999.99, true, "Sturdy"))){
-            System.out.println("Update Successful");
-        } else {
-            System.out.println("Update Failed");
-        }
+//        if(update(5, new Dog(5, "Toy", 13, "Sleepy", 999.99, true, "Sturdy"))){
+//            System.out.println("Update Successful");
+//        } else {
+//            System.out.println("Update Failed");
+//        }
+//        if(delete(3)){
+//            System.out.println("Deleted dog id 3");
+//        } else {
+//            System.out.println("No Match for delete");
+//        }
     }
 }
