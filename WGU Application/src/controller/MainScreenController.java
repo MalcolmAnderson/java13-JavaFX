@@ -26,10 +26,10 @@ public class MainScreenController implements Initializable {
 
 
     @FXML private TableView productsTableView;
-    @FXML private TableColumn<Part, Integer> productIdColumn;
-    @FXML private TableColumn<Part, String> productNameColumn;
-    @FXML private TableColumn<Part, Integer> productInventoryLevelColumn;
-    @FXML private TableColumn<Part, Double> productPricePerUnitColumn;
+    @FXML private TableColumn<Product, Integer> productIdColumn;
+    @FXML private TableColumn<Product, String> productNameColumn;
+    @FXML private TableColumn<Product, Integer> productInventoryLevelColumn;
+    @FXML private TableColumn<Product, Double> productPricePerUnitColumn;
 
 
 
@@ -59,6 +59,13 @@ public class MainScreenController implements Initializable {
         partInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
+        productsTableView.setItems(inv.getAllProducts());
+        productIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        productInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        productPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
 
         System.out.println("Inventory loaded into MainScreenController");
         System.out.println("End loadInventory");
@@ -87,6 +94,7 @@ public class MainScreenController implements Initializable {
     }
     public void OnEventPartDelete(ActionEvent event){
         System.out.println("PartDelete Clicked");
+
     }
 
 

@@ -29,7 +29,7 @@
             </HBox>
             <HBox spacing="20.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="In-House">
+                  <RadioButton mnemonicParsing="false" onAction="#onChangeSource" text="In-House">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -75,7 +75,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Inv" GridPane.rowIndex="2">
+            <Label text="Inventory Level" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
