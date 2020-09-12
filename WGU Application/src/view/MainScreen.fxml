@@ -55,9 +55,9 @@
                         </TableView>
                         <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Button fx:id="buttonPartAdd" mnemonicParsing="false" onAction="#OnEventPartAdd" text="Add" />
-                              <Button fx:id="buttonPartModify" mnemonicParsing="false" onAction="#OnEventPartModify" text="Modify" />
-                              <Button fx:id="buttonPartDelete" mnemonicParsing="false" onAction="#OnEventPartDelete" style="-fx-background-color: Red;" text="Delete" />
+                              <Button fx:id="buttonPartAdd" mnemonicParsing="false" onAction="#OnEventPartAdd" style="-fx-background-color: Yellow;" text="Add" />
+                              <Button fx:id="buttonPartModify" mnemonicParsing="false" onAction="#OnEventPartModify" style="-fx-background-color: Yellow;" text="Modify" />
+                              <Button fx:id="buttonPartDelete" mnemonicParsing="false" onAction="#OnEventPartDelete" text="Delete" />
                            </children>
                            <padding>
                               <Insets right="10.0" />
@@ -91,9 +91,9 @@
                         </TableView>
                         <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnEventProductAdd" text="Add" />
-                              <Button fx:id="buttonProductModify" mnemonicParsing="false" onAction="#OnEventProductModify" text="Modify" />
-                              <Button fx:id="buttonProductDelete" mnemonicParsing="false" onAction="#OnEventProductDelete" style="-fx-background-color: Red;" text="Delete" />
+                              <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnEventProductAdd" style="-fx-background-color: orange;" text="Add" />
+                              <Button fx:id="buttonProductModify" mnemonicParsing="false" onAction="#OnEventProductModify" style="-fx-background-color: orange;" text="Modify" />
+                              <Button fx:id="buttonProductDelete" mnemonicParsing="false" onAction="#OnEventProductDelete" text="Delete" />
                            </children>
                            <padding>
                               <Insets right="10.0" />

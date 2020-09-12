@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
 
@@ -44,7 +45,8 @@ public class FxmlNavigationTools {
             ActionEvent event,
             String viewNameAndPath,
             Inventory inv,
-            String transactionType) {
+            String transactionType,
+            Part selectedItem) {
         // Assumes that the event variable is a button object
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         try {
@@ -57,8 +59,10 @@ public class FxmlNavigationTools {
             AddModify_PartController addModify_partController = loader.getController();
             addModify_partController.loadInventory(inv);
             addModify_partController.SetAddModifyLabel(transactionType);
+            addModify_partController.SetItemToModify(selectedItem);
 
-            stage.setTitle(transactionType + " Part Screen");
+
+            stage.setTitle("Inventory Management System - " + transactionType + " Part Screen");
 
             stage.setScene(mainScreenScene);
             stage.show();
