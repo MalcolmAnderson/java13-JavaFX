@@ -20,7 +20,7 @@
          <children>
             <VBox prefWidth="250.0">
                <children>
-                  <Label text="Product">
+                  <Label fx:id="lblScreenIdentifier" text="Product">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -44,21 +44,21 @@
                         <Label text="Inv" GridPane.rowIndex="2" />
                         <Label text="Price" GridPane.rowIndex="3" />
                         <Label text="Max" GridPane.rowIndex="4" />
-                        <Label text="Label" GridPane.columnIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="id" text="Label" GridPane.columnIndex="1" />
+                        <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="level" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                         <HBox prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefWidth="140.0" spacing="20.0">
                                  <children>
-                                    <TextField maxWidth="50.0" />
+                                    <TextField fx:id="max" maxWidth="50.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="20.0">
                                  <children>
                                     <Label text="Min" />
-                                    <TextField maxWidth="50.0" />
+                                    <TextField fx:id="min" maxWidth="50.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -92,7 +92,7 @@
                               </TableView>
                               <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Button" />
+                                    <Button mnemonicParsing="false" text="Add" />
                                  </children>
                               </HBox>
                            </children>
@@ -109,7 +109,7 @@
                               </TableView>
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Button" />
+                                    <Button mnemonicParsing="false" text="Delete" />
                                  </children>
                               </HBox>
                            </children>

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 
@@ -41,6 +42,27 @@ public class FxmlNavigationTools {
         }
     }
 
+    private void ConfigureAndShowStage(Stage stage, Scene mainScreenScene, String transactionType, String partProduct){
+        stage.setTitle("Inventory Management System - " + transactionType + " " + partProduct + " Screen");
+        stage.setScene(mainScreenScene);
+        stage.show();
+    }
+    private void ConfigurePartController(FXMLLoader loader, Inventory inv, String transactionType, Part selectedItem){
+        // get controller and load data
+        AddModify_PartController addModify_partController = loader.getController();
+        addModify_partController.loadInventory(inv);
+        addModify_partController.SetAddModifyLabel(transactionType);
+        if(transactionType == "Modify") {
+            addModify_partController.SetItemToModify(selectedItem);
+        } else {
+            addModify_partController.InitializeNewItem();
+        }
+    }
+//    private void ConfigureAndShowPartStage(Stage stage, Scene mainScreenScene, String transactionType){
+//        stage.setTitle("Inventory Management System - " + transactionType + " Part Screen");
+//        stage.setScene(mainScreenScene);
+//        stage.show();
+//    }
     public void open_AddModify_PartController_WhilePassingInventory(
             ActionEvent event,
             String viewNameAndPath,
@@ -55,27 +77,24 @@ public class FxmlNavigationTools {
             Parent mainScreenParent = loader.load();
             Scene mainScreenScene = new Scene(mainScreenParent);
 
-            // get controller and load data
-            AddModify_PartController addModify_partController = loader.getController();
-            addModify_partController.loadInventory(inv);
-            addModify_partController.SetAddModifyLabel(transactionType);
-            if(transactionType == "Modify") {
-                addModify_partController.SetItemToModify(selectedItem);
-            } else {
-                addModify_partController.InitializeNewItem();
-            }
-
-
-            stage.setTitle("Inventory Management System - " + transactionType + " Part Screen");
-
-            stage.setScene(mainScreenScene);
-            stage.show();
+            ConfigurePartController(loader, inv, transactionType, selectedItem);
+            ConfigureAndShowStage(stage, mainScreenScene, transactionType, "Part");
         } catch (IOException ioe) {
-            // I don't care
             System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
         }
     }
 
+    private void ConfigureProductController(FXMLLoader loader, Inventory inv, String transactionType, Product selectedItem){
+        // get controller and load data
+        AddModify_ProductController addModify_ProductController = loader.getController();
+        addModify_ProductController.loadInventory(inv);
+        addModify_ProductController.SetAddModifyLabel(transactionType);
+        if(transactionType == "Modify") {
+            addModify_ProductController.SetItemToModify(selectedItem);
+        } else {
+            addModify_ProductController.InitializeNewItem();
+        }
+    }
     public void open_AddModify_ProductController_WhilePassingInventory(
             ActionEvent event,
             String viewNameAndPath,
@@ -93,26 +112,26 @@ public class FxmlNavigationTools {
             AddModify_ProductController addModify_productController = loader.getController();
             addModify_productController.loadInventory(inv);
 
-            stage.setTitle("Inventory Management System - " + transactionType + " Product Screen");
-
-            stage.setScene(mainScreenScene);
-            stage.show();
+            ConfigureAndShowStage(stage, mainScreenScene, transactionType, "Product");
+//            stage.setTitle("Inventory Management System - " + transactionType + " Product Screen");
+//            stage.setScene(mainScreenScene);
+//            stage.show();
         } catch (IOException ioe) {
             // I don't care
             System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
         }
     }
 
-    public void openViewFromButtonEvent(ActionEvent event, String viewNameAndPath) {
-        // Assumes that the event variable is a button object
-        try {
-            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            scene = FXMLLoader.load(getClass().getResource(viewNameAndPath));
-            stage.setScene(new Scene(scene));
-            stage.show();
-        } catch (IOException ioe) {
-            // I don't care
-            System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
-        }
-    }
+//    public void openViewFromButtonEvent(ActionEvent event, String viewNameAndPath) {
+//        // Assumes that the event variable is a button object
+//        try {
+//            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+//            scene = FXMLLoader.load(getClass().getResource(viewNameAndPath));
+//            stage.setScene(new Scene(scene));
+//            stage.show();
+//        } catch (IOException ioe) {
+//            // I don't care
+//            System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
+//        }
+//    }
 }

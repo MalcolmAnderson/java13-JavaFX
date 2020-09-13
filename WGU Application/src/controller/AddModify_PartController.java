@@ -41,10 +41,10 @@ public class AddModify_PartController  implements Initializable {
     public void InitializeNewItem(){
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         name.setText("part name");
-        level.setText("5");
-        price.setText("20.0");
-        min.setText("3");
-        max.setText("8");
+        level.setText("0");
+        price.setText("1000.0");
+        min.setText("0");
+        max.setText("0");
         if(radioInHouse.isSelected()){
             source.setText("2001");
         } else {
@@ -89,7 +89,7 @@ public class AddModify_PartController  implements Initializable {
         int iLevel = Integer.parseInt(level.getText());
         int iMin = Integer.parseInt(min.getText());
         int iMax = Integer.parseInt(max.getText());
-        if(iMin < iLevel && iLevel < iMax) {
+        if(iMin <= iLevel && iLevel <= iMax) {
             Part newPart;
             if (radioInHouse.isSelected()) {
                 newPart = new Part_InHouse(
@@ -116,7 +116,7 @@ public class AddModify_PartController  implements Initializable {
 
             navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory level must be greater than min and less that max", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory level can not be greater than max or less than min", ButtonType.OK);
             alert.showAndWait();
         }
     }
