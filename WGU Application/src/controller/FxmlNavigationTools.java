@@ -58,11 +58,6 @@ public class FxmlNavigationTools {
             addModify_partController.InitializeNewItem();
         }
     }
-//    private void ConfigureAndShowPartStage(Stage stage, Scene mainScreenScene, String transactionType){
-//        stage.setTitle("Inventory Management System - " + transactionType + " Part Screen");
-//        stage.setScene(mainScreenScene);
-//        stage.show();
-//    }
     public void open_AddModify_PartController_WhilePassingInventory(
             ActionEvent event,
             String viewNameAndPath,
@@ -99,7 +94,8 @@ public class FxmlNavigationTools {
             ActionEvent event,
             String viewNameAndPath,
             Inventory inv,
-            String transactionType) {
+            String transactionType,
+            Product selectedItem) {
         // Assumes that the event variable is a button object
         stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         try {
@@ -108,30 +104,12 @@ public class FxmlNavigationTools {
             Parent mainScreenParent = loader.load();
             Scene mainScreenScene = new Scene(mainScreenParent);
 
-            // get controller and load data
-            AddModify_ProductController addModify_productController = loader.getController();
-            addModify_productController.loadInventory(inv);
+            ConfigureProductController( loader,  inv,  transactionType, selectedItem);
 
             ConfigureAndShowStage(stage, mainScreenScene, transactionType, "Product");
-//            stage.setTitle("Inventory Management System - " + transactionType + " Product Screen");
-//            stage.setScene(mainScreenScene);
-//            stage.show();
         } catch (IOException ioe) {
             // I don't care
             System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
         }
     }
-
-//    public void openViewFromButtonEvent(ActionEvent event, String viewNameAndPath) {
-//        // Assumes that the event variable is a button object
-//        try {
-//            stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-//            scene = FXMLLoader.load(getClass().getResource(viewNameAndPath));
-//            stage.setScene(new Scene(scene));
-//            stage.show();
-//        } catch (IOException ioe) {
-//            // I don't care
-//            System.out.println("viewNameAndPath probably not found - viewNameAndPath: " + viewNameAndPath);
-//        }
-//    }
 }

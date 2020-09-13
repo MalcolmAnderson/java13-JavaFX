@@ -152,12 +152,19 @@ public class MainScreenController implements Initializable {
     @FXML
     public void OnEventProductAdd(ActionEvent event){
         System.out.println("ProductAdd Clicked");
-        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add");
+        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add", null);
     }
 
     public void OnEventProductModify(ActionEvent event){
         System.out.println("ProductModify Clicked");
-        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Modify");
+
+        int selectedProductIndex = productsTableView.getSelectionModel().getSelectedIndex();
+        if (selectedProductIndex != -1){
+            navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Modify", (Product)productsTableView.getSelectionModel().getSelectedItem());
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a product to modify", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
 

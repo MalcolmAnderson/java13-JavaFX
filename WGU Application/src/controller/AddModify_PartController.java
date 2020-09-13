@@ -9,7 +9,7 @@ import model.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddModify_PartController  implements Initializable {
+public class AddModify_PartController implements Initializable {
 
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
@@ -17,7 +17,7 @@ public class AddModify_PartController  implements Initializable {
 
     @FXML private RadioButton radioInHouse;
     @FXML private RadioButton radioOutsourced;
-    @FXML private ToggleGroup partSource;
+//    @FXML private ToggleGroup partSource;
 
 //    @FXML private ResourceBundle resources;
 
@@ -42,7 +42,7 @@ public class AddModify_PartController  implements Initializable {
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         name.setText("part name");
         level.setText("0");
-        price.setText("1000.0");
+        price.setText("200.0");
         min.setText("0");
         max.setText("0");
         if(radioInHouse.isSelected()){
@@ -96,18 +96,14 @@ public class AddModify_PartController  implements Initializable {
                         Integer.parseInt(id.getText()),
                         name.getText(),
                         Double.parseDouble(price.getText()),
-                        iLevel,
-                        iMin,
-                        iMax,
+                        iLevel, iMin, iMax,
                         Integer.parseInt(source.getText()));
             } else {
                 newPart = new Part_Outsourced(
                         Integer.parseInt(id.getText()),
                         name.getText(),
                         Double.parseDouble(price.getText()),
-                        iLevel,
-                        iMin,
-                        iMax,
+                        iLevel, iMin, iMax,
                         source.getText());
                 inv.getAllParts().remove(partBeingModified);
             }

@@ -2,14 +2,18 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import model.*;
 
-public class AddModify_ProductController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AddModify_ProductController implements Initializable {
 
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
+    Product productBeingModified;
 
     @FXML private Label lblScreenIdentifier;
     @FXML private Label id;
@@ -19,6 +23,23 @@ public class AddModify_ProductController {
     @FXML private TextField min;
     @FXML private TextField max;
 
+    @FXML private TextField textPartSearch;
+    @FXML private TableView partsTableView;
+    @FXML private TableColumn<Part, Integer> partIdColumn;
+    @FXML private TableColumn<Part, String> partNameColumn;
+    @FXML private TableColumn<Part, Integer> partInventoryLevelColumn;
+    @FXML private TableColumn<Part, Double> partPricePerUnitColumn;
+
+    @FXML
+    void handleAction_PartSearch(ActionEvent event) {
+        if(textPartSearch.getText() == ""){
+            partsTableView.setItems(inv.getAllParts());
+        } else {
+            partsTableView.setItems(inv.partNameFilter(textPartSearch.getText()));
+        }
+        partsTableView.refresh();
+    }
+
 
     public void loadInventory(Inventory inv){
         System.out.println("AddModify_ProductController setInv called");
@@ -27,7 +48,7 @@ public class AddModify_ProductController {
 
     public void SetAddModifyLabel(String transactionType){
         System.out.println("Trying to set value of lblScreenIdentifier");
-        lblScreenIdentifier.setText(transactionType + " Part");
+        lblScreenIdentifier.setText(transactionType + " Product");
     }
 
     @FXML
@@ -35,16 +56,39 @@ public class AddModify_ProductController {
         System.out.println("Cancel Clicked");
         navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
     }
+    @FXML void onAddAction(ActionEvent event){}
 
-    @FXML
-    void onSaveAction(ActionEvent event) {
+    @FXML void onDeleteAction(ActionEvent event){}
+
+    @FXML void onSaveAction(ActionEvent event) {
         System.out.println("Save Clicked");
-        navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
+        int iLevel = Integer.parseInt(level.getText());
+        int iMin = Integer.parseInt(min.getText());
+        int iMax = Integer.parseInt(max.getText());
+        if(iMin <= iLevel && iLevel <= iMax) {
+            Product newProduct;
+            newProduct = new Product(
+                        Integer.parseInt(id.getText()),
+                        name.getText(),
+                        Double.parseDouble(price.getText()),
+                        iLevel,
+                        iMin,
+                        iMax);
+            inv.getAllProducts().remove(productBeingModified);
+
+            inv.addProduct(newProduct);
+            IdNumber.commitIdNumber();
+
+            navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory level can not be greater than max or less than min", ButtonType.OK);
+            alert.showAndWait();
+        }
     }
 
 
     public void SetItemToModify(Product itemToModify){
-//        partBeingModified = itemToModify;
+        productBeingModified = itemToModify;
         System.out.println("In Set Item To Modify");
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         name.setText(itemToModify.getName());
@@ -52,23 +96,21 @@ public class AddModify_ProductController {
         price.setText(Double.toString(itemToModify.getPrice()));
         min.setText(Integer.toString(itemToModify.getMin()));
         max.setText(Integer.toString(itemToModify.getMax()));
-//        if(itemToModify instanceof Part_InHouse){
-//            source.setText(Integer.toString(((Part_InHouse) itemToModify).getMachineId()));
-//            radioInHouse.setSelected(true);
-//        } else {
-//            source.setText( ((Part_Outsourced) itemToModify).getCompanyName());
-//            radioOutsourced.setSelected(true);
-//        }
-//        onChangeSource(null);
     }
 
     public void InitializeNewItem() {
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
-        name.setText("part name");
+        name.setText("product name");
         level.setText("5");
-        price.setText("20.0");
+        price.setText("1000.0");
         min.setText("3");
         max.setText("8");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        System.out.println("AddModify_ProductController initialize called");
+        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
     }
 
 

@@ -74,30 +74,30 @@
                <children>
                   <AnchorPane prefHeight="400.0" prefWidth="510.0">
                      <children>
-                        <VBox prefHeight="180.0" prefWidth="520.0" spacing="3.0">
+                        <VBox fx:id="upperVBox" prefHeight="180.0" prefWidth="520.0" spacing="3.0">
                            <children>
                               <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Search" />
-                                    <TextField />
+                                    <Button mnemonicParsing="false" onAction="#handleAction_PartSearch" text="Search" />
+                                    <TextField fx:id="textPartSearch" onAction="#handleAction_PartSearch" />
                                  </children>
                               </HBox>
-                              <TableView prefHeight="200.0" prefWidth="200.0">
+                              <TableView fx:id="partsTableView" prefHeight="200.0" prefWidth="200.0">
                                 <columns>
-                                  <TableColumn minWidth="75.0" prefWidth="75.0" text="Part ID" />
-                                  <TableColumn minWidth="255.0" prefWidth="75.0" text="Part Name" />
-                                    <TableColumn minWidth="100.0" prefWidth="75.0" text="Inventory Level" />
-                                    <TableColumn minWidth="90.0" prefWidth="75.0" text="Price per Unit" />
+                                  <TableColumn fx:id="partIdColumn" minWidth="75.0" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn fx:id="partNameColumn" minWidth="255.0" prefWidth="75.0" text="Part Name" />
+                                    <TableColumn fx:id="partInventoryLevelColumn" minWidth="100.0" prefWidth="75.0" text="Inventory Level" />
+                                    <TableColumn fx:id="partPricePerUnitColumn" minWidth="90.0" prefWidth="75.0" text="Price per Unit" />
                                 </columns>
                               </TableView>
                               <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Add" />
+                                    <Button mnemonicParsing="false" onAction="#onAddAction" text="Add" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox layoutY="185.0" prefHeight="150.0" prefWidth="520.0" spacing="3.0">
+                        <VBox fx:id="lowerVBox" layoutY="185.0" prefHeight="150.0" prefWidth="520.0" spacing="3.0">
                            <children>
                               <TableView prefHeight="200.0" prefWidth="200.0">
                                 <columns>
@@ -109,7 +109,7 @@
                               </TableView>
                               <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Delete" />
+                                    <Button mnemonicParsing="false" onAction="#onDeleteAction" text="Delete" />
                                  </children>
                               </HBox>
                            </children>
