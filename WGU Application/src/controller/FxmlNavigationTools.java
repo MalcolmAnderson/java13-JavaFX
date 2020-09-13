@@ -93,7 +93,7 @@ public class FxmlNavigationTools {
             AddModify_ProductController addModify_productController = loader.getController();
             addModify_productController.loadInventory(inv);
 
-            stage.setTitle(transactionType + " Product Screen");
+            stage.setTitle("Inventory Management System - " + transactionType + " Product Screen");
 
             stage.setScene(mainScreenScene);
             stage.show();
