@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +16,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddModify_ProductController">
    <children>
-      <HBox prefWidth="200.0">
+      <HBox prefHeight="400.0" prefWidth="800.0">
          <children>
             <VBox prefWidth="250.0">
                <children>
@@ -69,39 +70,54 @@
                   </GridPane>
                </children>
             </VBox>
-            <VBox prefWidth="510.0" spacing="20.0">
+            <VBox prefWidth="520.0" spacing="20.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <AnchorPane prefHeight="400.0" prefWidth="510.0">
                      <children>
-                        <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
+                        <VBox prefHeight="180.0" prefWidth="520.0" spacing="3.0">
                            <children>
-                              <Button mnemonicParsing="false" text="Search" />
-                              <TextField />
+                              <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Search" />
+                                    <TextField />
+                                 </children>
+                              </HBox>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn minWidth="75.0" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn minWidth="255.0" prefWidth="75.0" text="Part Name" />
+                                    <TableColumn minWidth="100.0" prefWidth="75.0" text="Inventory Level" />
+                                    <TableColumn minWidth="90.0" prefWidth="75.0" text="Price per Unit" />
+                                </columns>
+                              </TableView>
+                              <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Button" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <TableView prefHeight="200.0" prefWidth="200.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                              <TableColumn prefWidth="75.0" text="Column X" />
-                          </columns>
-                        </TableView>
-                        <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
+                        </VBox>
+                        <VBox layoutY="185.0" prefHeight="150.0" prefWidth="520.0" spacing="3.0">
                            <children>
-                              <Button mnemonicParsing="false" text="Button" />
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn minWidth="75.0" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn minWidth="255.0" prefWidth="75.0" text="Part Name" />
+                                    <TableColumn minWidth="100.0" prefWidth="75.0" text="Inventory Level" />
+                                    <TableColumn minWidth="90.0" prefWidth="75.0" text="Price per Unit" />
+                                </columns>
+                              </TableView>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="Button" />
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  </AnchorPane>
                </children>
             </VBox>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_RIGHT" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefWidth="200.0" spacing="20.0">
@@ -112,6 +128,6 @@
       </HBox>
    </children>
    <padding>
-      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
    </padding>
 </VBox>
