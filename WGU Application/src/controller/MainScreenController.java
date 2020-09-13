@@ -1,4 +1,5 @@
 package controller;
+import javafx.collections.transformation.FilteredList;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Inventory;
 import model.Part;
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 public class MainScreenController implements Initializable {
 
     FxmlNavigationTools navTools = new FxmlNavigationTools();
+    FilteredList<Part> partFilteredList;
 
     @FXML private TableView partsTableView;
     @FXML private TableColumn<Part, Integer> partIdColumn;
@@ -195,6 +197,7 @@ public class MainScreenController implements Initializable {
     public void handleAction_ProductSearch(){
         System.out.println("handleAction_ProductSearch Clicked");
     }
+
 
 
 }

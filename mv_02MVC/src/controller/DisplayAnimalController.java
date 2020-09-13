@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -74,14 +75,33 @@ public class DisplayAnimalController implements Initializable {
 
     public Animal selectAnimal(int id){
         for(Animal dog : DataProvider.getAllAnimals()){
-
+            if(dog.getId() == id){
+                return dog;
+            }
         }
-
+        return null;
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        animalTableView.setItems(DataProvider.getAllAnimals());
+    public ObservableList<Animal> filter(String breed){
+        if(!(DataProvider.getAllFilteredAnimals().isEmpty())){
+            DataProvider.getAllFilteredAnimals().clear();
+        }
+        for(Animal dog: DataProvider.getAllAnimals()){
+            if(dog.getBreed().toUpperCase().contains(breed.toUpperCase())){
+                DataProvider.getAllFilteredAnimals().add(dog);
+            }
+        }
+        if(DataProvider.getAllFilteredAnimals().isEmpty()){
+            return DataProvider.getAllAnimals();
+        } else {
+            return DataProvider.getAllFilteredAnimals();
+        }
+    }
+
+
+    @Override public void initialize(URL location, ResourceBundle resources) {
+        //animalTableView.setItems(DataProvider.getAllAnimals());
+        animalTableView.setItems(filter("q"));
 
         animalIdCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         breedCol.setCellValueFactory(new PropertyValueFactory<>("breed"));
@@ -101,5 +121,7 @@ public class DisplayAnimalController implements Initializable {
 //        } else {
 //            System.out.println("No Match for delete");
 //        }
+
+        //animalTableView.getSelectionModel().select(selectAnimal(6));
     }
 }

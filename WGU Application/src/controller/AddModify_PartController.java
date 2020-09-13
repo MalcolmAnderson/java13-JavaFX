@@ -81,7 +81,6 @@ public class AddModify_PartController  implements Initializable {
         if(alert.getResult() == ButtonType.YES){
             navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
         }
-
     }
 
     @FXML
@@ -135,13 +134,11 @@ public class AddModify_PartController  implements Initializable {
         lblScreenIdentifier.setText(transactionType + " Part");
     }
 
-    @FXML
-    void onChangeSource(ActionEvent event) {
+    @FXML void onChangeSource(ActionEvent event) {
         if(radioInHouse.isSelected()){
             lblSourceDescription.setText("Machine ID");
         } else {
             lblSourceDescription.setText("Company Name");
         }
     }
-
 }
