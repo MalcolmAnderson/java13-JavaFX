@@ -3,15 +3,8 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.TextField;
-import model.Inventory;
-import model.Part;
-import model.Part_InHouse;
-import model.Part_Outsourced;
+import javafx.scene.control.*;
+import model.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +13,7 @@ public class AddModify_PartController  implements Initializable {
 
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
+    Part partBeingModified;
 
     @FXML private RadioButton radioInHouse;
     @FXML private RadioButton radioOutsourced;
@@ -27,8 +21,7 @@ public class AddModify_PartController  implements Initializable {
 
 //    @FXML private ResourceBundle resources;
 
-
-    @FXML private TextField id;
+    @FXML private Label id;
     @FXML private TextField name;
     @FXML private TextField level;
     @FXML private TextField price;
@@ -45,55 +38,100 @@ public class AddModify_PartController  implements Initializable {
         this.inv = inv;
     }
 
+    public void InitializeNewItem(){
+        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
+        name.setText("part name");
+        level.setText("5");
+        price.setText("20.0");
+        min.setText("3");
+        max.setText("8");
+        if(radioInHouse.isSelected()){
+            source.setText("2001");
+        } else {
+            source.setText("Permberly Video and Parts");
+        }
+        onChangeSource(null);
+
+    }
+
     public void SetItemToModify(Part itemToModify){
+        partBeingModified = itemToModify;
         System.out.println("In Set Item To Modify");
+        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
+        name.setText(itemToModify.getName());
+        level.setText(Integer.toString(itemToModify.getStock()));
+        price.setText(Double.toString(itemToModify.getPrice()));
+        min.setText(Integer.toString(itemToModify.getMin()));
+        max.setText(Integer.toString(itemToModify.getMax()));
+        if(itemToModify instanceof Part_InHouse){
+            source.setText(Integer.toString(((Part_InHouse) itemToModify).getMachineId()));
+            radioInHouse.setSelected(true);
+        } else {
+            source.setText( ((Part_Outsourced) itemToModify).getCompanyName());
+            radioOutsourced.setSelected(true);
+        }
+        onChangeSource(null);
     }
 
     @FXML
     void onCancelAction(ActionEvent event) {
         System.out.println("Cancel Clicked");
-        navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
+        Alert alert = new Alert(Alert.AlertType.WARNING, "Are you sure you want to cancel this action?  Information will not be saved.", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        if(alert.getResult() == ButtonType.YES){
+            navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
+        }
+
     }
 
     @FXML
     void onSaveAction(ActionEvent event) {
         System.out.println("Save Clicked");
-        //if
-        Part newPart;
-        if(radioInHouse.isSelected()){
-            newPart = new Part_InHouse(
-                    Integer.parseInt(id.getText()),
-                    name.getText(),
-                    Integer.parseInt(level.getText()),
-                    Integer.parseInt(price.getText()),
-                    Integer.parseInt(min.getText()),
-                    Integer.parseInt(max.getText()),
-                    Integer.parseInt(source.getText()));
+        int iLevel = Integer.parseInt(level.getText());
+        int iMin = Integer.parseInt(min.getText());
+        int iMax = Integer.parseInt(max.getText());
+        if(iMin < iLevel && iLevel < iMax) {
+            Part newPart;
+            if (radioInHouse.isSelected()) {
+                newPart = new Part_InHouse(
+                        Integer.parseInt(id.getText()),
+                        name.getText(),
+                        Double.parseDouble(price.getText()),
+                        iLevel,
+                        iMin,
+                        iMax,
+                        Integer.parseInt(source.getText()));
+            } else {
+                newPart = new Part_Outsourced(
+                        Integer.parseInt(id.getText()),
+                        name.getText(),
+                        Double.parseDouble(price.getText()),
+                        iLevel,
+                        iMin,
+                        iMax,
+                        source.getText());
+                inv.getAllParts().remove(partBeingModified);
+            }
+            inv.addPart(newPart);
+            IdNumber.commitIdNumber();
+
+            navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
         } else {
-            newPart = new Part_Outsourced(
-                    Integer.parseInt(id.getText()),
-                    name.getText(),
-                    Integer.parseInt(level.getText()),
-                    Integer.parseInt(price.getText()),
-                    Integer.parseInt(min.getText()),
-                    Integer.parseInt(max.getText()),
-                    source.getText());
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Inventory level must be greater than min and less that max", ButtonType.OK);
+            alert.showAndWait();
         }
-        inv.addPart(newPart);
-
-        navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("AddModify_PartController initialize called");
+        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         radioInHouse.setSelected(true);
         onChangeSource(null);
     }
 
     public void SetAddModifyLabel(String transactionType){
-        System.out.println("Trying to set value of lblScreenIdentifyer");
+        System.out.println("Trying to set value of lblScreenIdentifier");
         lblScreenIdentifier.setText(transactionType + " Part");
     }
 

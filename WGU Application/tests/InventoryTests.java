@@ -1,5 +1,5 @@
 
-import model.GetIdNumber;
+import model.IdNumber;
 import model.Inventory;
 import model.Part_InHouse;
 import model.Part_Outsourced;
@@ -17,13 +17,13 @@ public class InventoryTests {
     public void RemovingAPartShouldReturnTrue(){
 
 
-    Part_Outsourced osCase = new Part_Outsourced(GetIdNumber.getNextIdNumber(),
+    Part_Outsourced osCase = new Part_Outsourced(IdNumber.getNextIdNumberAndCommit(),
             "Case", 2d, 2, 2,8, "Cases from Bob");
 
-    Part_InHouse ihSimpleCircuit = new Part_InHouse(GetIdNumber.getNextIdNumber(),
+    Part_InHouse ihSimpleCircuit = new Part_InHouse(IdNumber.getNextIdNumberAndCommit(),
             "Simple Circuit", 5d, 8, 2, 10, 200);
 
-    Part_InHouse ihLogicCircuit = new Part_InHouse(GetIdNumber.getNextIdNumber(),
+    Part_InHouse ihLogicCircuit = new Part_InHouse(IdNumber.getNextIdNumberAndCommit(),
             "Logic Circuit", 5d, 8, 2, 10, 201);
 
         Inventory inv = new Inventory();

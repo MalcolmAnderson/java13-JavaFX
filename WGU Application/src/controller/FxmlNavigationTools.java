@@ -59,7 +59,11 @@ public class FxmlNavigationTools {
             AddModify_PartController addModify_partController = loader.getController();
             addModify_partController.loadInventory(inv);
             addModify_partController.SetAddModifyLabel(transactionType);
-            addModify_partController.SetItemToModify(selectedItem);
+            if(transactionType == "Modify") {
+                addModify_partController.SetItemToModify(selectedItem);
+            } else {
+                addModify_partController.InitializeNewItem();
+            }
 
 
             stage.setTitle("Inventory Management System - " + transactionType + " Part Screen");

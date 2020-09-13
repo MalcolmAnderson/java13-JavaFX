@@ -93,13 +93,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="id" GridPane.columnIndex="1" />
             <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="level" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="price" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <TextField fx:id="min" prefWidth="120.0" />
+                  <TextField fx:id="max" prefWidth="120.0" />
                   <Label text="Min">
                      <font>
                         <Font size="18.0" />
@@ -107,8 +106,9 @@
                   </Label>
                </children>
             </HBox>
-            <TextField fx:id="max" maxWidth="120.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="min" maxWidth="120.0" prefWidth="120.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField fx:id="source" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="id" text="Label" GridPane.columnIndex="1" />
          </children>
          <padding>
             <Insets left="40.0" />
