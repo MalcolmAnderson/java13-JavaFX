@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.*;
 
 import java.net.URL;
@@ -44,6 +45,13 @@ public class AddModify_ProductController implements Initializable {
     public void loadInventory(Inventory inv){
         System.out.println("AddModify_ProductController setInv called");
         this.inv = inv;
+
+        partsTableView.setItems(inv.getAllParts());
+        partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        partNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        partInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        partPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
     }
 
     public void SetAddModifyLabel(String transactionType){

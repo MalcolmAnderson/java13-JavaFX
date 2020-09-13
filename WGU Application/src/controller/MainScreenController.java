@@ -42,6 +42,12 @@ public class MainScreenController implements Initializable {
     @FXML private Button buttonPartSearch;
     @FXML private Button buttonProductSearch;
 
+
+    @FXML private GridPane addModify_Part;
+    @FXML private Button buttonExit;
+
+    private Inventory inv;
+
     public void OnButtonClicked_PartSearch(){
         System.out.println("PartSearch Clicked - Search on " + textPartSearch.getText());
         handleAction_PartSearch(null);
@@ -72,21 +78,9 @@ public class MainScreenController implements Initializable {
 
 
 
-    //    @FXML private ListView<Part> lv_Parts;
-//    @FXML private ListView<Product> lv_Products;
-    @FXML private GridPane addModify_Part;
-    @FXML private Button buttonExit;
-//    @FXML private GridPane idMainScreen;
-
-    private Inventory inv;
-    ObservableList<Part> allParts;
-    ObservableList<Product> allProducts;
     public void loadInventory(Inventory inv){
         System.out.println("Begin loadInventory");
         this.inv = inv;
-        System.out.println(inv.getAllParts().size());
-        allParts = inv.getAllParts();
-        allProducts = inv.getAllProducts();
 
         partsTableView.setItems(inv.getAllParts());
         partIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
