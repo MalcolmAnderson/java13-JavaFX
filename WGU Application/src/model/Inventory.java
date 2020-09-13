@@ -9,6 +9,9 @@ public class Inventory {
     private ObservableList<Part> allParts = FXCollections.observableArrayList();
     private ObservableList<Product> allProducts = FXCollections.observableArrayList();
 
+    private ObservableList<Part> filteredParts = FXCollections.observableArrayList();
+    private ObservableList<Product> filteredProducts = FXCollections.observableArrayList();
+
 
     public void addPart(Part newPart  ){
         allParts.add(newPart ); // this is a change I want to revert
@@ -95,6 +98,13 @@ public class Inventory {
         return allProducts;
     }
 
+    public ObservableList<Part> getFilteredParts(){
+        return filteredParts;
+    }
+    public ObservableList<Product> getFilteredProducts(){
+        return filteredProducts;
+    }
+
     public void PrintAllParts(){
         for(Part o: allParts ){
             System.out.println(o.getId() + " " + o.getName());
@@ -105,6 +115,30 @@ public class Inventory {
         for(Product o: allProducts ){
             System.out.println(o.getId() + " " + o.getName());
         }
+    }
+
+    public ObservableList<Part> partNameFilter(String name){
+        if(!(filteredParts.isEmpty())){
+            filteredParts.clear();
+        }
+        for(Part part: allParts){
+            if(part.getName().toUpperCase().contains(name.toUpperCase())){
+                filteredParts.add(part);
+            }
+        }
+        return filteredParts;
+    }
+
+    public ObservableList<Product> productNameFilter(String name){
+        if(!(filteredProducts.isEmpty())){
+            filteredProducts.clear();
+        }
+        for(Product product: allProducts){
+            if(product.getName().toUpperCase().contains(name.toUpperCase())){
+                filteredProducts.add(product);
+            }
+        }
+        return filteredProducts;
     }
 
 

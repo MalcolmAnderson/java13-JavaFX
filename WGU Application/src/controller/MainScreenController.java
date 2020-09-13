@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 public class MainScreenController implements Initializable {
 
     FxmlNavigationTools navTools = new FxmlNavigationTools();
-    FilteredList<Part> partFilteredList;
+    //FilteredList<Part> partFilteredList;
 
     @FXML private TableView partsTableView;
     @FXML private TableColumn<Part, Integer> partIdColumn;
@@ -42,14 +42,32 @@ public class MainScreenController implements Initializable {
     @FXML private Button buttonPartSearch;
     @FXML private Button buttonProductSearch;
 
+    public void OnButtonClicked_PartSearch(){
+        System.out.println("PartSearch Clicked - Search on " + textPartSearch.getText());
+        handleAction_PartSearch(null);
+    }
     @FXML
     void handleAction_PartSearch(ActionEvent event) {
-
+        if(textPartSearch.getText() == ""){
+            partsTableView.setItems(inv.getAllParts());
+        } else {
+            partsTableView.setItems(inv.partNameFilter(textPartSearch.getText()));
+        }
+        partsTableView.refresh();
     }
 
+    public void OnButtonClicked_ProductSearch(){
+        System.out.println("ProductSearch Clicked - Search on " + textProductSearch.getText());
+        handleAction_ProductSearch(null);
+    }
     @FXML
     void handleAction_ProductSearch(ActionEvent event) {
-
+        if(textProductSearch.getText() == ""){
+            productsTableView.setItems(inv.getAllProducts());
+        } else {
+            productsTableView.setItems(inv.productNameFilter(textProductSearch.getText()));
+        }
+        productsTableView.refresh();
     }
 
 
@@ -180,23 +198,6 @@ public class MainScreenController implements Initializable {
 
 
 
-    // Stubs
-    public void OnButtonClicked_PartSearch(){
-        System.out.println("PartSearch Clicked - Search on " + textPartSearch.getText());
-    }
-    public void handleAction_PartSearch(){
-        System.out.println("handleAction_PartSearch Clicked");
-    }
-
-    public void OnButtonClicked_ProductSearch(){
-        System.out.println("ProductSearch Clicked - Search on " + textProductSearch.getText());
-    }
-
-
-
-    public void handleAction_ProductSearch(){
-        System.out.println("handleAction_ProductSearch Clicked");
-    }
 
 
 
