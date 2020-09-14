@@ -152,16 +152,13 @@ public class AddModify_ProductController implements Initializable {
     }
     private void InitializeListProductValues(Product itemToModify){
         if(itemToModify.getAssociatedParts().size() > 0) {
-            for (Part part : itemToModify.getAssociatedParts()) {
-                availableParts.add(part);
-            }
-            for (Part part : availableParts){
-                productCopy.getAssociatedParts().remove(part);
+            for (Part part : itemToModify.getAssociatedParts()){
+                availableParts.remove(part);
             }
         }
-        partsTableView.setItems(productCopy.getAssociatedParts());
+        partsTableView.setItems(availableParts);
         partsTableView.refresh();
-        prodPartsTableView.setItems(availableParts);
+        prodPartsTableView.setItems(itemToModify.getAssociatedParts());
         prodPartsTableView.refresh();
     }
 
@@ -169,12 +166,9 @@ public class AddModify_ProductController implements Initializable {
         copyOfOriginalProductForReplaceAction = itemToModify;
         productCopy = Product.Clone(itemToModify);
 
+        availableParts.setAll(inv.getAllParts()); // make a copy of parts
         InitializeNonListProductValues(productCopy);
         InitializeListProductValues(productCopy);
-
-        availableParts.setAll(inv.getAllParts()); // make a copy of parts
-        partsTableView.setItems(availableParts); // set tableview to look at the copy
-        partsTableView.refresh();
 
         prodPartsTableView.setItems(productCopy.getAssociatedParts());
         prodPartsTableView.refresh();
@@ -195,5 +189,9 @@ public class AddModify_ProductController implements Initializable {
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
     }
 
+    @FXML void onTest(ActionEvent event) {
+        InitializeListProductValues(productCopy);
+
+    }
 
 }
