@@ -20,6 +20,13 @@ public class Product {
         this.max = max;
     }
 
+    public static Product Clone(Product p){
+        Product clone = new Product(p.getId(), p.getName(), p.getPrice(), p.getStock(), p.getMin(), p.getMax());
+        for(Part part : p.getAssociatedParts()){
+            clone.addAssociatedPart(part);
+        }
+        return clone;
+    }
 
     @Override
     public String toString() {
