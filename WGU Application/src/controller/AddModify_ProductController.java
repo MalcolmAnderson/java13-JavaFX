@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,8 +16,9 @@ public class AddModify_ProductController implements Initializable {
 
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
-    Product productBeingModified;
+    Product copyOfOriginalProductForReplaceAction;
     Product productCopy = Product.NewEmptyProduct();
+    ObservableList<Part> availableParts = FXCollections.observableArrayList();
 
     @FXML private Label lblScreenIdentifier;
     @FXML private Label id;
@@ -76,11 +79,44 @@ public class AddModify_ProductController implements Initializable {
         System.out.println("Cancel Clicked");
         navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
     }
-    @FXML void onAddAction(ActionEvent event){}
+    @FXML void onAddAction(ActionEvent event){
+        int selectedPartIndex = partsTableView.getSelectionModel().getSelectedIndex();
+        Part selectedPart = (Part)partsTableView.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Part Index = " + selectedPartIndex);
+        if (selectedPartIndex != -1){
+            // remove part from parts list
+            productCopy.getAssociatedParts().add(selectedPart);
+            // add part to associated parts
+            availableParts.remove(selectedPart);
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a part to add to product", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
 
-    @FXML void onDeleteAction(ActionEvent event){}
+    @FXML void onDeleteAction(ActionEvent event){
+        int selectedPartIndex = prodPartsTableView.getSelectionModel().getSelectedIndex();
+        Part selectedPart = (Part)prodPartsTableView.getSelectionModel().getSelectedItem();
+        System.out.println("Selected Part Index = " + selectedPartIndex);
+        if (selectedPartIndex != -1){
+            // add part to parts list
+            availableParts.add(selectedPart);
+            // remove part to associated parts
+            productCopy.getAssociatedParts().remove(selectedPart);
+        }else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a part to remove from product", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
 
     @FXML void onSaveAction(ActionEvent event) {
+        int selectedPartCount = productCopy.getAssociatedParts().size();
+        if(selectedPartCount < 1){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Products must have at least 1 associated part", ButtonType.OK);
+            alert.showAndWait();
+            return;
+        }
+
         System.out.println("Save Clicked");
         int iLevel = Integer.parseInt(level.getText());
         int iMin = Integer.parseInt(min.getText());
@@ -94,7 +130,7 @@ public class AddModify_ProductController implements Initializable {
                         iLevel,
                         iMin,
                         iMax);
-            inv.getAllProducts().remove(productBeingModified);
+            inv.getAllProducts().remove(copyOfOriginalProductForReplaceAction);
 
             inv.addProduct(newProduct);
             IdNumber.commitIdNumber();
@@ -106,32 +142,52 @@ public class AddModify_ProductController implements Initializable {
         }
     }
 
-
-    public void SetItemToModify(Product itemToModify){
-        productBeingModified = itemToModify;
-        productCopy = Product.Clone(itemToModify);
-
-        System.out.println("In Set Item To Modify");
+    private void InitializeNonListProductValues(Product itemToModify){
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         name.setText(itemToModify.getName());
         level.setText(Integer.toString(itemToModify.getStock()));
         price.setText(Double.toString(itemToModify.getPrice()));
         min.setText(Integer.toString(itemToModify.getMin()));
         max.setText(Integer.toString(itemToModify.getMax()));
+    }
+    private void InitializeListProductValues(Product itemToModify){
+        if(itemToModify.getAssociatedParts().size() > 0) {
+            for (Part part : itemToModify.getAssociatedParts()) {
+                availableParts.add(part);
+            }
+            for (Part part : availableParts){
+                productCopy.getAssociatedParts().remove(part);
+            }
+        }
+        partsTableView.setItems(productCopy.getAssociatedParts());
+        partsTableView.refresh();
+        prodPartsTableView.setItems(availableParts);
+        prodPartsTableView.refresh();
+    }
 
-        System.out.println("Items in product copy -> associated parts: " + productCopy.getAssociatedParts().size());
+    public void SetItemToModify(Product itemToModify){
+        copyOfOriginalProductForReplaceAction = itemToModify;
+        productCopy = Product.Clone(itemToModify);
+
+        InitializeNonListProductValues(productCopy);
+        InitializeListProductValues(productCopy);
+
+        availableParts.setAll(inv.getAllParts()); // make a copy of parts
+        partsTableView.setItems(availableParts); // set tableview to look at the copy
+        partsTableView.refresh();
+
         prodPartsTableView.setItems(productCopy.getAssociatedParts());
         prodPartsTableView.refresh();
     }
 
-    public void InitializeNewItem() {
-        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
-        name.setText("product name");
-        level.setText("5");
-        price.setText("1000.0");
-        min.setText("3");
-        max.setText("8");
-    }
+//    public void InitializeNewItem() {
+//        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
+//        name.setText("product name");
+//        level.setText("5");
+//        price.setText("1000.0");
+//        min.setText("3");
+//        max.setText("8");
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

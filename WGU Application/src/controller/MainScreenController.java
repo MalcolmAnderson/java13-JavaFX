@@ -94,19 +94,14 @@ public class MainScreenController implements Initializable {
         productInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         productPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-
-
         System.out.println("Inventory loaded into MainScreenController");
         System.out.println("End loadInventory");
-
     }
 
     public void OnButtonClicked_Exit(){
         Platform.exit();
     }
 
-
-    // Handle Part Buttons
     @FXML
     void OnEventPartAdd(ActionEvent event){
         System.out.println("PartAdd Clicked");
@@ -138,11 +133,8 @@ public class MainScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a part to delete", ButtonType.OK);
             alert.showAndWait();
         }
-
     }
 
-
-    // Handle Product Buttons
     @FXML
     public void OnEventProductAdd(ActionEvent event){
         System.out.println("ProductAdd Clicked");
@@ -161,7 +153,6 @@ public class MainScreenController implements Initializable {
         }
     }
 
-
     public void OnEventProductDelete(ActionEvent event){
         System.out.println("ProductDelete Clicked");
         int selectedProductIndex = productsTableView.getSelectionModel().getSelectedIndex();
@@ -178,21 +169,10 @@ public class MainScreenController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a product to delete", ButtonType.OK);
             alert.showAndWait();
         }
-
     }
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Begin initialize Table");
-//        lv_Products.setItems(allProducts);
-//        lv_Parts.setItems(allParts);
-        // setup parts table
-        //partIdColumn.setCellFactory(new PropertyValueFactory("idS"));S
-        //partNameColumn.setCellFactory(new PropertyValueFactory<Part, String>("getName()"));
-
-        System.out.println("End initialize");
     }
 
 
