@@ -28,6 +28,12 @@ public class Product {
         return clone;
     }
 
+    public static Product NewEmptyProduct(){
+        Product newEmptyProduct = new Product(0,"Empty",5d,0,0,0);
+        return newEmptyProduct;
+    }
+
+
     @Override
     public String toString() {
         return name ;

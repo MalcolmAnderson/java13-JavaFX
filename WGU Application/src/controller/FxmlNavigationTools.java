@@ -84,11 +84,7 @@ public class FxmlNavigationTools {
         AddModify_ProductController addModify_ProductController = loader.getController();
         addModify_ProductController.loadInventory(inv);
         addModify_ProductController.SetAddModifyLabel(transactionType);
-        if(transactionType == "Modify") {
-            addModify_ProductController.SetItemToModify(selectedItem);
-        } else {
-            addModify_ProductController.InitializeNewItem();
-        }
+        addModify_ProductController.SetItemToModify(selectedItem);
     }
     public void open_AddModify_ProductController_WhilePassingInventory(
             ActionEvent event,

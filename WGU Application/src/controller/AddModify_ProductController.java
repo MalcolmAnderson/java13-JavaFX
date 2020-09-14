@@ -15,7 +15,7 @@ public class AddModify_ProductController implements Initializable {
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
     Product productBeingModified;
-    Product productCopy = new Product(0,"Empty",5d,0,0,0);
+    Product productCopy = Product.NewEmptyProduct();
 
     @FXML private Label lblScreenIdentifier;
     @FXML private Label id;

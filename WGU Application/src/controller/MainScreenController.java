@@ -146,7 +146,7 @@ public class MainScreenController implements Initializable {
     @FXML
     public void OnEventProductAdd(ActionEvent event){
         System.out.println("ProductAdd Clicked");
-        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add", null);
+        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add", Product.NewEmptyProduct());
     }
 
     public void OnEventProductModify(ActionEvent event){
