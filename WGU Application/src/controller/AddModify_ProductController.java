@@ -15,6 +15,7 @@ public class AddModify_ProductController implements Initializable {
     Inventory inv;
     FxmlNavigationTools navTools = new FxmlNavigationTools();
     Product productBeingModified;
+    Product productCopy = new Product(0,"Empty",5d,0,0,0);
 
     @FXML private Label lblScreenIdentifier;
     @FXML private Label id;
@@ -30,6 +31,12 @@ public class AddModify_ProductController implements Initializable {
     @FXML private TableColumn<Part, String> partNameColumn;
     @FXML private TableColumn<Part, Integer> partInventoryLevelColumn;
     @FXML private TableColumn<Part, Double> partPricePerUnitColumn;
+
+    @FXML private TableView prodPartsTableView;
+    @FXML private TableColumn<Part, Integer> ppartIdColumn;
+    @FXML private TableColumn<Part, String> ppartNameColumn;
+    @FXML private TableColumn<Part, Integer> ppartInventoryLevelColumn;
+    @FXML private TableColumn<Part, Double> ppartPricePerUnitColumn;
 
     @FXML
     void handleAction_PartSearch(ActionEvent event) {
@@ -52,6 +59,11 @@ public class AddModify_ProductController implements Initializable {
         partInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         partPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
+        prodPartsTableView.setItems(inv.getAllParts());
+        ppartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ppartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        ppartInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        ppartPricePerUnitColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
 
     public void SetAddModifyLabel(String transactionType){
@@ -97,6 +109,8 @@ public class AddModify_ProductController implements Initializable {
 
     public void SetItemToModify(Product itemToModify){
         productBeingModified = itemToModify;
+        productCopy = Product.Clone(itemToModify);
+
         System.out.println("In Set Item To Modify");
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
         name.setText(itemToModify.getName());
@@ -104,6 +118,10 @@ public class AddModify_ProductController implements Initializable {
         price.setText(Double.toString(itemToModify.getPrice()));
         min.setText(Integer.toString(itemToModify.getMin()));
         max.setText(Integer.toString(itemToModify.getMax()));
+
+        System.out.println("Items in product copy -> associated parts: " + productCopy.getAssociatedParts().size());
+        prodPartsTableView.setItems(productCopy.getAssociatedParts());
+        prodPartsTableView.refresh();
     }
 
     public void InitializeNewItem() {
