@@ -122,17 +122,15 @@ public class AddModify_ProductController implements Initializable {
         int iMin = Integer.parseInt(min.getText());
         int iMax = Integer.parseInt(max.getText());
         if(iMin <= iLevel && iLevel <= iMax) {
-            Product newProduct;
-            newProduct = new Product(
-                        Integer.parseInt(id.getText()),
-                        name.getText(),
-                        Double.parseDouble(price.getText()),
-                        iLevel,
-                        iMin,
-                        iMax);
+            productCopy.setId(Integer.parseInt(id.getText()));
+            productCopy.setName(name.getText());
+            productCopy.setPrice(Double.parseDouble(price.getText()));
+            productCopy.setStock(iLevel);
+            productCopy.setMax(iMax);
+            productCopy.setMin(iMin);
             inv.getAllProducts().remove(copyOfOriginalProductForReplaceAction);
 
-            inv.addProduct(newProduct);
+            inv.addProduct(productCopy);
             IdNumber.commitIdNumber();
 
             navTools.openMainScreenWhilePassingInventory(event, "/view/MainScreen.fxml", inv);
@@ -174,24 +172,9 @@ public class AddModify_ProductController implements Initializable {
         prodPartsTableView.refresh();
     }
 
-//    public void InitializeNewItem() {
-//        id.setText(Integer.toString(IdNumber.getNextIdNumber()));
-//        name.setText("product name");
-//        level.setText("5");
-//        price.setText("1000.0");
-//        min.setText("3");
-//        max.setText("8");
-//    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println("AddModify_ProductController initialize called");
         id.setText(Integer.toString(IdNumber.getNextIdNumber()));
     }
-
-    @FXML void onTest(ActionEvent event) {
-        InitializeListProductValues(productCopy);
-
-    }
-
 }

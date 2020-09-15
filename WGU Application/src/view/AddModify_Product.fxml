@@ -68,7 +68,6 @@
                         <Insets right="20.0" />
                      </padding>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#onTest" text="Button" />
                </children>
             </VBox>
             <VBox prefWidth="520.0" spacing="20.0">
