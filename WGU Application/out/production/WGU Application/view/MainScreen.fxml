@@ -91,8 +91,8 @@
                         </TableView>
                         <HBox alignment="TOP_RIGHT" prefWidth="200.0" spacing="10.0">
                            <children>
-                              <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnEventProductAdd" style="-fx-background-color: yellow;" text="Add" />
-                              <Button fx:id="buttonProductModify" mnemonicParsing="false" onAction="#OnEventProductModify" style="-fx-background-color: yellow;" text="Modify" />
+                              <Button fx:id="buttonProductAdd" mnemonicParsing="false" onAction="#OnEventProductAdd" text="Add" />
+                              <Button fx:id="buttonProductModify" mnemonicParsing="false" onAction="#OnEventProductModify" text="Modify" />
                               <Button fx:id="buttonProductDelete" mnemonicParsing="false" onAction="#OnEventProductDelete" text="Delete" />
                            </children>
                            <padding>

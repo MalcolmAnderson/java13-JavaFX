@@ -1,0 +1,20 @@
+Price cannot be negative
+Product price must be higher than the sum of the prices of it's parts
+Parts may not be added to a product more than once
+
+Potential Changes to pre-release version
+    Change from Inventory being a static singleton to just a normal object
+    Benefits
+        Better unit testing (tests can be run in parallel without stepping on each other)
+        Personal preference
+
+
+Post release features
+Product components can be other products
+Product components cannot contain itself, alone, or inside another part
+Inventory consists of 3 elements,
+    current inventory,
+    reorder at or below (min),
+    reorder level,
+    intended min, (possible)
+    intended max (possible)
