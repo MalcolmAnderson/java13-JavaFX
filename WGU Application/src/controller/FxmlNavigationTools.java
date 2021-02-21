@@ -30,7 +30,7 @@ public class FxmlNavigationTools {
             Scene mainScreenScene = new Scene(mainScreenParent);
 
             // get controller and load data
-            MainScreenController mainScreenController = loader.getController();
+            MainScreen_Controller mainScreenController = loader.getController();
             mainScreenController.loadInventory(inv);
             stage.setTitle("Inventory Management System");
 
@@ -42,12 +42,16 @@ public class FxmlNavigationTools {
         }
     }
 
-    private void ConfigureAndShowStage(Stage stage, Scene mainScreenScene, String transactionType, String partProduct){
+    private void ConfigureAndShowStage(
+            Stage stage, Scene mainScreenScene,
+            String transactionType, String partProduct){
         stage.setTitle("Inventory Management System - " + transactionType + " " + partProduct + " Screen");
         stage.setScene(mainScreenScene);
         stage.show();
     }
-    private void ConfigurePartController(FXMLLoader loader, Inventory inv, String transactionType, Part selectedItem){
+    private void ConfigurePartController(
+            FXMLLoader loader, Inventory inv,
+            String transactionType, Part selectedItem){
         // get controller and load data
         AddModify_PartController addModify_partController = loader.getController();
         addModify_partController.loadInventory(inv);
@@ -79,7 +83,9 @@ public class FxmlNavigationTools {
         }
     }
 
-    private void ConfigureProductController(FXMLLoader loader, Inventory inv, String transactionType, Product selectedItem){
+    private void ConfigureProductController(
+            FXMLLoader loader, Inventory inv,
+            String transactionType, Product selectedItem){
         // get controller and load data
         AddModify_ProductController addModify_ProductController = loader.getController();
         addModify_ProductController.loadInventory(inv);

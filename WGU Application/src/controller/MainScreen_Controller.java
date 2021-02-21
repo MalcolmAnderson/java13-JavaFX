@@ -15,7 +15,7 @@ import javafx.scene.layout.GridPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainScreenController implements Initializable {
+public class MainScreen_Controller implements Initializable {
 
     FxmlNavigationTools navTools = new FxmlNavigationTools();
     //FilteredList<Part> partFilteredList;
@@ -101,15 +101,28 @@ public class MainScreenController implements Initializable {
     @FXML
     void OnEventPartAdd(ActionEvent event){
         System.out.println("PartAdd Clicked");
-        navTools.open_AddModify_PartController_WhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Add", null);
+        navTools.open_AddModify_PartController_WhilePassingInventory(
+                event,
+                "/view/AddModify_Part.fxml",
+                inv,
+                "Add",
+                null);
     }
     public void OnEventPartModify(ActionEvent event){
         System.out.println("PartModify Clicked");
         int selectedPartIndex = partsTableView.getSelectionModel().getSelectedIndex();
         if (selectedPartIndex != -1){
-            navTools.open_AddModify_PartController_WhilePassingInventory(event, "/view/AddModify_Part.fxml", inv, "Modify", (Part)partsTableView.getSelectionModel().getSelectedItem() );
+            navTools.open_AddModify_PartController_WhilePassingInventory(
+                    event,
+                    "/view/AddModify_Part.fxml",
+                    inv,
+                    "Modify",
+                    (Part)partsTableView.getSelectionModel().getSelectedItem() );
         }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a part to modify", ButtonType.OK);
+            Alert alert = new Alert(
+                    Alert.AlertType.INFORMATION,
+                    "Please select a part to modify",
+                    ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -119,14 +132,21 @@ public class MainScreenController implements Initializable {
         Part selectedPart = (Part)partsTableView.getSelectionModel().getSelectedItem();
         System.out.println("Selected Part Index = " + selectedPartIndex);
         if (selectedPartIndex != -1){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete this part?", ButtonType.YES, ButtonType.CANCEL);
+            Alert alert = new Alert(
+                    Alert.AlertType.CONFIRMATION,
+                    "Delete this part?",
+                    ButtonType.YES,
+                    ButtonType.CANCEL);
             alert.showAndWait();
             if(alert.getResult() == ButtonType.YES){
                 partsTableView.getItems().remove(selectedPartIndex);
                 inv.deletePart(selectedPart);
             }
         }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a part to delete", ButtonType.OK);
+            Alert alert = new Alert(
+                    Alert.AlertType.INFORMATION,
+                    "Please select a part to delete",
+                    ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -134,7 +154,12 @@ public class MainScreenController implements Initializable {
     @FXML
     public void OnEventProductAdd(ActionEvent event){
         System.out.println("ProductAdd Clicked");
-        navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Add", Product.NewEmptyProduct());
+        navTools.open_AddModify_ProductController_WhilePassingInventory(
+                event,
+                "/view/AddModify_Product.fxml",
+                inv,
+                "Add",
+                Product.NewEmptyProduct());
     }
 
     public void OnEventProductModify(ActionEvent event){
@@ -142,9 +167,14 @@ public class MainScreenController implements Initializable {
 
         int selectedProductIndex = productsTableView.getSelectionModel().getSelectedIndex();
         if (selectedProductIndex != -1){
-            navTools.open_AddModify_ProductController_WhilePassingInventory(event, "/view/AddModify_Product.fxml", inv, "Modify", (Product)productsTableView.getSelectionModel().getSelectedItem());
+            navTools.open_AddModify_ProductController_WhilePassingInventory(
+                    event,
+                    "/view/AddModify_Product.fxml",
+                    inv, "Modify",
+                    (Product)productsTableView.getSelectionModel().getSelectedItem());
         }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a product to modify", ButtonType.OK);
+            Alert alert = new Alert(
+                    Alert.AlertType.INFORMATION, "Please select a product to modify", ButtonType.OK);
             alert.showAndWait();
         }
     }
@@ -155,14 +185,21 @@ public class MainScreenController implements Initializable {
         Product selectedProduct = (Product)productsTableView.getSelectionModel().getSelectedItem();
         System.out.println("Selected Part Index = " + selectedProductIndex);
         if (selectedProductIndex != -1){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete this product?", ButtonType.YES, ButtonType.CANCEL);
+            Alert alert = new Alert(
+                    Alert.AlertType.CONFIRMATION,
+                    "Delete this product?",
+                    ButtonType.YES,
+                    ButtonType.CANCEL);
             alert.showAndWait();
             if(alert.getResult() == ButtonType.YES){
                 productsTableView.getItems().remove(selectedProductIndex);
                 inv.deleteProduct(selectedProduct);
             }
         }else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Please select a product to delete", ButtonType.OK);
+            Alert alert = new Alert(
+                    Alert.AlertType.INFORMATION,
+                    "Please select a product to delete",
+                    ButtonType.OK);
             alert.showAndWait();
         }
     }

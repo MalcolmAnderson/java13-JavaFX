@@ -1,7 +1,7 @@
 package main;
 
 import model.*;
-import controller.MainScreenController;
+import controller.MainScreen_Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,7 +30,7 @@ public class Main extends Application {
         Scene mainScreenScene = new Scene(mainScreenParent);
 
         // get controller and load data
-        MainScreenController mainScreenController = loader.getController();
+        MainScreen_Controller mainScreenController = loader.getController();
         mainScreenController.loadInventory(inv);
 
         primaryStage.setTitle("Inventory Management System");
